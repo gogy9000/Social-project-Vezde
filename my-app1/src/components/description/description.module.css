@@ -1,0 +1,8 @@
+.Description {
+    color: goldenrod;
+    padding: 10px;
+}
+.Description img {
+    width: 120px;
+    border-radius: 50%;
+}

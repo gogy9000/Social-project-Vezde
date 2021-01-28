@@ -1,0 +1,11 @@
+.navbar {
+    grid-area: n;
+    background-color: rgb(169, 184, 190);
+    padding: 20px;
+    text-decoration: none;
+  }
+ .activeLink {
+   color : rgb(238, 171, 26);
+   
+  
+ }
