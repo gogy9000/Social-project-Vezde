@@ -6,7 +6,7 @@ const Masages = () => {
     return (
         <div className= {s.Masages}>
            
-         Messages
+         Messagess
         </div>
     );
 }
