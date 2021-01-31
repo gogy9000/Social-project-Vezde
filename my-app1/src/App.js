@@ -30,6 +30,7 @@ const App = (props) => {
       <Route exact path='/Music' component={Music} />
       <Route path='/Settings' component={Settings} />
       <Route path='/item1' component={Panorama} />
+      <Route exact path='/Post_item/' component={Panorama} />
        </div>
     </div>
     </BrowserRouter>

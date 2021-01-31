@@ -14,17 +14,26 @@ const Dialog_items = (props) => {
 
 
  const Dialogss = (props) => {
+
+   let Dialogs_data = [
+      { id: 1, name: 'Motherfucker2'},
+      { id: 1, name: 'motherfucker5'},
+      { id: 1, name: 'motherfucker6'},
+      { id: 1, name: 'motherfucker35'},
+      { id: 1, name: 'motherfucker36'},
+      { id: 1, name: 'motherfucker878'},
+   ]
+
     return (
        
     <div>
         
-            <Dialog_items name="Motherfuker1" id="1" />
-            <Dialog_items name="Motherfuker2" id="2" />
-            <Dialog_items name="Motherfuker3" id="3" />
-            <Dialog_items name="Motherfuker4" id="4" />
-            <Dialog_items name="Motherfuker5" id="5" />
-            <Dialog_items name="Motherfuker6" id="6" />
-        
+            <Dialog_items name={Dialogs_data[0] .name} id={Dialogs_data[0] .id} />
+            <Dialog_items name={Dialogs_data[1] .name} id={Dialogs_data[1] .id} />
+            <Dialog_items name={Dialogs_data[2] .name} id={Dialogs_data[2] .id} />
+            <Dialog_items name={Dialogs_data[3] .name} id={Dialogs_data[3] .id} />
+            <Dialog_items name={Dialogs_data[4] .name} id={Dialogs_data[4] .id} />
+            <Dialog_items name={Dialogs_data[5] .name} id={Dialogs_data[5] .id} />
     </div>
     )
  }
