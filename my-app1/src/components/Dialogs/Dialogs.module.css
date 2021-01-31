@@ -5,10 +5,11 @@
 }
 .Dialogs_items {
     padding: 10px;
+    
 }
 .Dialog {
     color: #f0ebeb;
-    
+    text-decoration: none;
 }
 .Dialog.active {
     color: gold;

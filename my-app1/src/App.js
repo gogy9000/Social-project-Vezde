@@ -4,10 +4,12 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Nav from './components/Navbar/navbar';
 import Profile from './components/Profile/profile';
-import Dialogs from './components/Dialogs/Dialogs';
 import {Route, BrowserRouter} from "react-router-dom";
 import Music from './components/Navbar/Music/Music';
 import Settings from './components/Navbar/Settings/Settings';
+import Dialogs from './components/Dialogs/Dialogs';
+import Panorama from './components/Profile/Panorama/Panorama';
+
 
 
 
@@ -22,11 +24,12 @@ const App = (props) => {
       <Nav />
       
       <div className = 'app-wrapper-content'>
-        <Route path='/Dialogs' component={Dialogs} />
+        <Route exact path='/Dialogs' component={Dialogs} />
       
-      <Route path='/Profile' component={Profile} />
-      <Route path='/Music' component={Music} />
+      <Route exact path='/Profile' component={Profile} />
+      <Route exact path='/Music' component={Music} />
       <Route path='/Settings' component={Settings} />
+      <Route path='/item1' component={Panorama} />
        </div>
     </div>
     </BrowserRouter>
