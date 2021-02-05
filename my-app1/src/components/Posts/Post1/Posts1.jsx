@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import s from './Posts1.module.css';
 
 const Item = (props) => {
+  
   let Path= "/Post_item/"  ;
   return (
   <div className={s.Post1}>
@@ -15,29 +16,20 @@ const Item = (props) => {
 }
 
 const Post1 = (props) => {
-  let Post_item_data= [
-    {id:1, Post_item: 'Hello motherfucker!', Like:121},
-    {id:1, Post_item: 'Hello motherfucker!', Like:123},
-    {id:1, Post_item: 'Hello motherfucker!', Like:123},
-    {id:1, Post_item: 'Hello motherfucker!', Like:123},
-    {id:1, Post_item: 'Hello motherfucker!', Like:123},
-    {id:1, Post_item: 'Hello motherfucker!', Like:123},
-    {id:1, Post_item: 'Hello motherfucker!', Like:123},
-    {id:1, Post_item: 'Hello motherfucker!', Like:123},
-    {id:1, Post_item: 'Hello motherfucker!', Like:123},
-  ]
+  
+   let post_elements = props.Post_item_data.map (p => <Item Post_item={p.Post_item} Like={p.Like} />)
     
     return (
     <div  > 
       
-        
-        <Item Post_item={Post_item_data[0] .Post_item} Like={Post_item_data[0] .Like} />
+        {post_elements}
+       {/*} <Item Post_item={Post_item_data[0] .Post_item} Like={Post_item_data[0] .Like} />
         <Item Post_item={Post_item_data[1] .Post_item} Like={Post_item_data[1] .Like} />
         <Item Post_item={Post_item_data[2] .Post_item} Like={Post_item_data[2] .Like} />
         <Item Post_item={Post_item_data[3] .Post_item} Like={Post_item_data[3] .Like} />
         <Item Post_item={Post_item_data[4] .Post_item} Like={Post_item_data[4] .Like} />
         <Item Post_item={Post_item_data[5] .Post_item} Like={Post_item_data[5] .Like} />
-        <Item Post_item={Post_item_data[6] .Post_item} Like={Post_item_data[6] .Like} />
+    <Item Post_item={Post_item_data[6] .Post_item} Like={Post_item_data[6] .Like} />*/}
         
     </div>
     );

@@ -1,39 +1,45 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Dialogs_data from '../Dialogs_data/Dialogs_data';
+ 
 
 const Dialog_items = (props) => {
 
-    let Path = "/item" + props.id ;
+    let Path = "/item/" + props.id ;
  
     return (
        <div>
-                <NavLink to={Path}>{props.name}</NavLink>
+                <NavLink to={Path}>{props.name} </NavLink>
              </div>
     )
  }
 
 
- const Dialogss = (props) => {
 
-   let Dialogs_data = [
+ const Dialogss = (props) => {
+  /* let Dialogs_data = [
       { id: 1, name: 'Motherfucker2'},
-      { id: 1, name: 'motherfucker5'},
-      { id: 1, name: 'motherfucker6'},
-      { id: 1, name: 'motherfucker35'},
-      { id: 1, name: 'motherfucker36'},
-      { id: 1, name: 'motherfucker878'},
-   ]
+      { id: 2, name: 'motherfucker5'},
+      { id: 3, name: 'motherfucker6'},
+      { id: 4, name: 'motherfucker35'},
+      { id: 5, name: 'motherfucker36'},
+      { id: 6, name: 'motherfucker878'},
+    ]  */
+    
+   
+   
+
+   let  dialogs_elements = props.Dialogs_data.map (dialog => <Dialog_items name={dialog.name} id={dialog.id} />)
+     
+   
+   
 
     return (
        
     <div>
-        
-            <Dialog_items name={Dialogs_data[0] .name} id={Dialogs_data[0] .id} />
-            <Dialog_items name={Dialogs_data[1] .name} id={Dialogs_data[1] .id} />
-            <Dialog_items name={Dialogs_data[2] .name} id={Dialogs_data[2] .id} />
-            <Dialog_items name={Dialogs_data[3] .name} id={Dialogs_data[3] .id} />
-            <Dialog_items name={Dialogs_data[4] .name} id={Dialogs_data[4] .id} />
-            <Dialog_items name={Dialogs_data[5] .name} id={Dialogs_data[5] .id} />
+       
+       { dialogs_elements }
+
     </div>
     )
  }

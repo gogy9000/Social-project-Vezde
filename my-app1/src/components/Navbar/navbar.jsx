@@ -7,16 +7,16 @@ import Settings from './Settings/Settings'
 import { NavLink } from 'react-router-dom';
 import Profile from '../Profile/profile';
 
-const Nav = () => {
+const Navbar = () => {
   return (
     <div className={s.navbar}>
       <div className={s.Item}>
-        <NavLink to="/profile" activeClassName={s.activeLink}  > Profile </NavLink>
+        <NavLink to="/profile" activeClassName={s.activeLink}  > Профиль </NavLink>
       </div>
-       <NavLink to="/Dialogs" activeClassName={s.activeLink}> Messages   </NavLink>
-       <NavLink to="/Music" activeClassName={s.activeLink}> Musicc </NavLink> 
-       <NavLink to="/Settings" activeClassName={s.activeLink}> Settings  </NavLink> 
+       <NavLink to="/Dialogs" activeClassName={s.activeLink}> Сообщения </NavLink>
+       <NavLink to="/Music" activeClassName={s.activeLink}> Музыка </NavLink> 
+       <NavLink to="/Settings" activeClassName={s.activeLink}> Настройки  </NavLink> 
    </div> 
   );
 }
-export default Nav;
+export default Navbar;

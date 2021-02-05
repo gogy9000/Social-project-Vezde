@@ -3,14 +3,16 @@ import New_posts from './new_posts/new_posts';
 import Post1 from '../Posts/Post1/Posts1';
 import My_post from './My post/My_post';
 
-const Posts = () => {
+const Posts = (props) => {
+  
+  
   
   return (
    <div>
   
      <New_posts /> 
      <My_post />
-     <Post1  />       
+     <Post1 Post_item_data={props.Post_item_data} />       
      
 
    </div>
