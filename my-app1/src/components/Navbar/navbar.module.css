@@ -1,11 +1,24 @@
 .navbar {
     grid-area: n;
     background-color: rgb(169, 184, 190);
-    padding: 20px;
-    text-decoration: none;
+    padding:10px;
+    
+    text-align: right;
+
   }
  .activeLink {
-   color : rgb(238, 171, 26);
+   color : rgb(238, 58, 26);
+ }
+ .Frends  {
+   font-family: 'Courier New', Courier, monospace;
+   display: grid;
+   grid-template-rows: 1fr 1fr;
+   padding: 5px;
+   text-align: center;
+ }
+ .Frends img {
+   padding: 5px;
+   width: 40px;
+   border-radius: 10px; 
    
-  
  }

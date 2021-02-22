@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Dialogs_data from '../Dialogs_data/Dialogs_data';
+//import Dialogs_data from '../Dialogs_data/Dialogs_data';
  
 
 const Dialog_items = (props) => {
@@ -25,10 +25,6 @@ const Dialog_items = (props) => {
       { id: 5, name: 'motherfucker36'},
       { id: 6, name: 'motherfucker878'},
     ]  */
-    
-   
-   
-
    let  dialogs_elements = props.Dialogs_data.map (dialog => <Dialog_items name={dialog.name} id={dialog.id} />)
      
    
