@@ -29,7 +29,7 @@ const Post1 = (props) => {
         <Item Post_item={Post_item_data[3] .Post_item} Like={Post_item_data[3] .Like} />
         <Item Post_item={Post_item_data[4] .Post_item} Like={Post_item_data[4] .Like} />
         <Item Post_item={Post_item_data[5] .Post_item} Like={Post_item_data[5] .Like} />
-    <Item Post_item={Post_item_data[6] .Post_item} Like={Post_item_data[6] .Like} />*/}
+        <Item Post_item={Post_item_data[6] .Post_item} Like={Post_item_data[6] .Like} />*/}
         
     </div>
     );
