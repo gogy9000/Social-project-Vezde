@@ -9,11 +9,15 @@ const New_posts = (props) => {
         
         let text = New_Post_element.current.value;
         props.AddPost (text);
+        New_Post_element.current.value = '';
+    }
+    let On_Post_Change = () => {
+
     }
     return (
         <div className= {s.new_posts}>
             <div>
-              <textarea ref={New_Post_element}></textarea>
+              <textarea onChange={On_Post_Change} ref={New_Post_element} value={props.New_Post_Text}/>
             </div>
             <button onClick={AddPost}>нахуярить пост</button>
         </div>

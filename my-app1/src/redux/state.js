@@ -1,8 +1,10 @@
 //import Post1 from "../components/Posts/Post1/Posts1";
 
+import { rerenderEntireTree } from "./render"
 
 
-      
+
+     
 
   let state = {
     Messages_Page: {
@@ -35,9 +37,12 @@
         {id:7, Post_item: 'Hello motherfucker!', Like:123},
         {id:8, Post_item: 'Hello motherfucker!', Like:123},
         {id:9, Post_item: 'Hello motherfucker!', Like:123},                     
-      ]
+      ],
+      New_Post_Text : 'saske'
      }
+     
     }
+  
 
      export let AddPost = (Post_message) =>{
        //debugger
@@ -47,15 +52,10 @@
          Like: 0
        }
        state.Profile_Page.Post_item_data.push (New_Post)
-       
+       rerenderEntireTree (state);
      }
      
-     /*img_massive: [
-        {id:1, src="https://sun1-22.userapi.com/s/v1/ig2/6jWOn15joy0OGsx5R__OZrfKrdISYm14FKiC-6VMeYo6JH12lf2c0H6POrsNzezDKknOqA2b1ls7X2Z4rriFrQ8B.jpg?size=100x0&quality=96&crop=3,139,1436,1436&ava=1"},
-        {id:2,  src="https://sun1-93.userapi.com/s/v1/ig2/ywaLnngPrnk84YdhVbLea2-dSOM2jHiwmnrWRB2tIJLe00nNmjrCRGQZAvc1dw7x75oNWK6GCTP8N_lF1M_QVsBY.jpg?size=100x0&amp;quality=96&amp;crop=4,4,2155,2155&amp;ava=1" },
-       ]
      
-    }*/
 
 
  

@@ -6,7 +6,7 @@ import Message from './Message/Message';
 
 
 const Dialogs = (props) => {
- // debugger;
+  debugger;
  /* let Dialogs_data = [
     { id: 1, name: 'Motherfucker2'},
     { id: 2, name: 'motherfucker5'},
@@ -19,8 +19,8 @@ const Dialogs = (props) => {
   
    return (
      <div className={s.Dialogs}> 
-       <Dialogss Dialogs_data={props.Dialogs_data} />  
-       <Message Message_data={props.Message_data} /> 
+       <Dialogss Dialogs_data={props.Messages_Page.Dialogs_data} />  
+       <Message Message_data={props.Messages_Page.Message_data} /> 
      </div> 
    )
 }

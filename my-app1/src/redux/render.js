@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from '../App';
 import state, { AddPost } from './state';
 //import './index.css';
@@ -14,12 +15,12 @@ import state, { AddPost } from './state';
 
 
 
-export let rerenderEntireTree =() => {
+export let rerenderEntireTree = (state) => {
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App appstate={state} AddPost={AddPost}/>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <App state={state} AddPost={AddPost}/>
+    </BrowserRouter>,
   document.getElementById('root')
 );
 }

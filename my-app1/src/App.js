@@ -10,8 +10,7 @@ import Settings from './components/Navbar/Settings/Settings';
 import Dialogs from './components/Dialogs/Dialogs';
 import Panorama from './components/Profile/Panorama/Panorama';
 import Profile1 from './components/Navbar/Profile./Profile1';
-import Frends from './components/Navbar/Frends/Frends';
-
+import { AddPost } from './redux/state';
  
 
 
@@ -20,7 +19,7 @@ import Frends from './components/Navbar/Frends/Frends';
 
 
 const App = (props) => {
-  
+ debugger
   
   return (
    <BrowserRouter>
@@ -28,15 +27,16 @@ const App = (props) => {
       <Header />
       <Navbar />
       
-     <div className = 'app-wrapper-content'>
-      <Route exact path='/Dialogs'render={ () => <Dialogs Dialogs_data={props.appstate.Messages_Page.Dialogs_data} Message_data={props.appstate.Messages_Page.Message_data} />} />
-      <Route exact path='/Profile'render={() =><Profile Post_item_data={props.appstate.Profile_Page.Post_item_data} AddPost={props.AddPost} />} />
+    <div className = 'app-wrapper-content'>
+      <Route exact path='/Dialogs' render={ () => <Dialogs Messages_Page={props.state.Messages_Page} />} />
+      
+      <Route exact path='/Profile' render={() => <Profile Profile_Page={props.state.Profile_Page} AddPost={props.AddPost}  />} />
       <Route exact path='/Music' render={ () => <Music />} />
       <Route exact path='/Settings' render={() =><Settings />} />
       <Route exact path='/item' render={()=><Panorama />} />
       <Route exact path='/Post_item/' render={()=><Panorama />} />
-      <Route exact path='/Frends' render={()=><Frends />} />
-     </div>
+      <Route exact path='/description/' render={()=><Profile1 />} />
+       </div>
     </div>
     </BrowserRouter>
     ); 

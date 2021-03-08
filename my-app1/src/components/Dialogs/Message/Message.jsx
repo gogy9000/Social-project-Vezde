@@ -10,7 +10,7 @@ const Messages = (props) => {
 }
 
 const Message = (props) => {
-  
+  debugger
  /* let Message_data= [
     { id:1, message:'Fuck you1' },
     { id:1, message:'Fuck you1' },

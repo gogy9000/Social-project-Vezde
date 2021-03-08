@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import s from './Posts1.module.css';
 
 const Item = (props) => {
-  
+  debugger
   let Path= "/Post_item/"  ;
   return (
   <div className={s.Post1}>
@@ -19,7 +19,7 @@ const Item = (props) => {
 const Post1 = (props) => {
   
   
-   let post_elements = props.Post_item_data.map (p => <Item Post_item={p.Post_item} Like={p.Like} />)
+   let post_elements = props.Profile_Page.Post_item_data.map (p => <Item Post_item={p.Post_item} Like={p.Like} />)
    
     return (
     <div  > 
