@@ -9,9 +9,11 @@ const New_posts = (props) => {
         
         let text = New_Post_element.current.value;
         props.AddPost (text);
-        New_Post_element.current.value = '';
+        props.updateNewPostText ('');
     }
     let On_Post_Change = () => {
+        let text = New_Post_element.current.value
+        props.updateNewPostText(text)
 
     }
     return (

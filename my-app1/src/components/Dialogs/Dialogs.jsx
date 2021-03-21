@@ -6,7 +6,7 @@ import Message from './Message/Message';
 
 
 const Dialogs = (props) => {
-  debugger;
+ // debugger;
  /* let Dialogs_data = [
     { id: 1, name: 'Motherfucker2'},
     { id: 2, name: 'motherfucker5'},

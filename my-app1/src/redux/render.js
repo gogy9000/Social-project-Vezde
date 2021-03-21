@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from '../App';
-import state, { AddPost } from './state';
+import state, { AddPost, updateNewPostText } from './state';
 //import './index.css';
 //import App from './App';
 //import reportWebVitals from './reportWebVitals';
@@ -19,7 +19,7 @@ export let rerenderEntireTree = (state) => {
 
 ReactDOM.render(
   <BrowserRouter>
-    <App state={state} AddPost={AddPost}/>
+    <App state={state} AddPost={AddPost} updateNewPostText={updateNewPostText} />
     </BrowserRouter>,
   document.getElementById('root')
 );

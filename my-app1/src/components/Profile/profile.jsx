@@ -14,7 +14,7 @@ const Profile = (props) => {
             <Description name ="Vania G." age ="30" male ="man" />
           </NavLink>
          
-          <Posts /*Post_item_data={props.Profile_Page.Post_item_data}*/Profile_Page={props.Profile_Page} AddPost= {props.AddPost} /*New_Post_Text = {props.Profile_Page.New_Post_Text}*/ />
+          <Posts /*Post_item_data={props.Profile_Page.Post_item_data}*/Profile_Page={props.Profile_Page} AddPost= {props.AddPost} updateNewPostText={props.updateNewPostText} /*New_Post_Text = {props.Profile_Page.New_Post_Text}*/ />
         </div>
         
     );

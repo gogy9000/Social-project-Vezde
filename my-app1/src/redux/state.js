@@ -31,18 +31,15 @@ import { rerenderEntireTree } from "./render"
         {id:1, Post_item: 'Hello Motherfucker!', Like:121},
         {id:2, Post_item: 'Hello motherfucker!', Like:123},
         {id:3, Post_item: 'Hello motherfucker!', Like:123},
-        {id:4, Post_item: 'Hello motherfucker!', Like:123},
-        {id:5, Post_item: 'Hello motherfucker!', Like:123},
-        {id:6, Post_item: 'Hello motherfucker!', Like:123},
-        {id:7, Post_item: 'Hello motherfucker!', Like:123},
-        {id:8, Post_item: 'Hello motherfucker!', Like:123},
-        {id:9, Post_item: 'Hello motherfucker!', Like:123},                     
+       
+                            
       ],
-      New_Post_Text : 'saske'
+      
+       New_Post_Text :   'saske'
      }
      
     }
-  
+     window.state= state
 
      export let AddPost = (Post_message) =>{
        //debugger
@@ -54,11 +51,17 @@ import { rerenderEntireTree } from "./render"
        state.Profile_Page.Post_item_data.push (New_Post)
        rerenderEntireTree (state);
      }
+
+     export let updateNewPostText = (newText) =>{
+      
+      state.Profile_Page.New_Post_Text = newText
+      rerenderEntireTree (state);
+    }
      
      
 
 
  
   
-   export default state;
+   export default state ;
    

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import s from './Posts1.module.css';
 
 const Item = (props) => {
-  debugger
+  //debugger
   let Path= "/Post_item/"  ;
   return (
   <div className={s.Post1}>
