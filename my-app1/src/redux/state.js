@@ -1,13 +1,5 @@
-
- let rerenderEntireTree = ()=> {
-console.log ('state was changed')
- };
-
-
-
-     
-
-    let state = {
+let store = {
+   _state : {
     Messages_Page: {
 
       Dialogs_data: [
@@ -35,34 +27,34 @@ console.log ('state was changed')
       ]
      }
      
-    }
-     window.state= state
-
-     export const AddPost = (Post_message) =>{
-       //debugger
-       let New_Post = {
-         id: 5,
-         Post_item: Post_message,
-         Like: 0
+    },
+     _callsubscriber() {
+      console.log ('state was changed')
+       },
+       getState() {
+         //debugger
+         return this._state;
+       },
+        AddPost() {
+          //debugger
+        let New_Post = {
+          id: 5,
+          Post_item: this._state.Profile_Page.Post_Message,
+          Like: 0
+        }
+        this._state.Profile_Page.Post_item_data.push (New_Post)
+        this._state.Profile_Page.New_Post_Text = '';
+        this._callsubscriber(this._state)
+      },
+      updateNewPostText(newText) {
+       this._state.Profile_Page.New_Post_Text = newText
+       this._callsubscriber(this._state)
+      },
+       subscribe(observer) {
+        this._callsubscriber = observer;
        }
-       state.Profile_Page.Post_item_data.push (New_Post)
-       state.Profile_Page.New_Post_Text = '';
-       rerenderEntireTree (state);
-     }
 
-     export const updateNewPostText = (newText) =>{
-      
-      state.Profile_Page.New_Post_Text = newText
-      rerenderEntireTree (state);
-    }
-     
-     export const subscribe = (observer) => {
-       rerenderEntireTree = observer;
-     
-     }
-
-
- 
-  
-   export default state ;
+}
+window.store = store
+export default store ;
    
