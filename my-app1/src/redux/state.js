@@ -1,12 +1,13 @@
-//import Post1 from "../components/Posts/Post1/Posts1";
 
-import { rerenderEntireTree } from "./render"
+ let rerenderEntireTree = ()=> {
+console.log ('state was changed')
+ };
 
 
 
      
 
-  let state = {
+    let state = {
     Messages_Page: {
 
       Dialogs_data: [
@@ -30,18 +31,14 @@ import { rerenderEntireTree } from "./render"
       Post_item_data: [
         {id:1, Post_item: 'Hello Motherfucker!', Like:121},
         {id:2, Post_item: 'Hello motherfucker!', Like:123},
-        {id:3, Post_item: 'Hello motherfucker!', Like:123},
-       
-                            
-      ],
-      
-       New_Post_Text :   'saske'
+        {id:3, Post_item: 'Hello motherfucker!', Like:123},                   
+      ]
      }
      
     }
      window.state= state
 
-     export let AddPost = (Post_message) =>{
+     export const AddPost = (Post_message) =>{
        //debugger
        let New_Post = {
          id: 5,
@@ -49,16 +46,20 @@ import { rerenderEntireTree } from "./render"
          Like: 0
        }
        state.Profile_Page.Post_item_data.push (New_Post)
+       state.Profile_Page.New_Post_Text = '';
        rerenderEntireTree (state);
      }
 
-     export let updateNewPostText = (newText) =>{
+     export const updateNewPostText = (newText) =>{
       
       state.Profile_Page.New_Post_Text = newText
       rerenderEntireTree (state);
     }
      
+     export const subscribe = (observer) => {
+       rerenderEntireTree = observer;
      
+     }
 
 
  
