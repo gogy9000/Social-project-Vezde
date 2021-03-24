@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT= 'UPDATE-NEW-POST-TEXT'
+
 let store = {
    _state : {
     Messages_Page: {
@@ -24,8 +27,10 @@ let store = {
         {id:1, Post_item: 'Hello Motherfucker!', Like:121},
         {id:2, Post_item: 'Hello motherfucker!', Like:123},
         {id:3, Post_item: 'Hello motherfucker!', Like:123},                   
-      ]
-     }
+      ],
+      New_Post_Text: 'it camasutra'
+     },
+     sidebar: {}
      
     },
      _callsubscriber() {
@@ -44,7 +49,7 @@ let store = {
          if (action.type === 'ADD-POST') {
           let New_Post = {
             id: 5,
-            Post_item: this._state.Profile_Page.Post_Message,
+            Post_item: this._state.Profile_Page.New_Post_Text,
             Like: 4
           }
           this._state.Profile_Page.Post_item_data.push (New_Post)
@@ -57,6 +62,13 @@ let store = {
        }
 
 }
+export const AddPostActionCreator =() => ({type: ADD_POST})
+  
+
+export const  updateNewPostTextActionCreator =(text) => 
+     ({ type: UPDATE_NEW_POST_TEXT, newText: text })
+  
+
 window.store = store
 export default store ;
    
