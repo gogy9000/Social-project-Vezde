@@ -10,9 +10,9 @@ const Posts = (props) => {
   return (
    <div>
   
-     <New_posts /*Post_item_data={props.Post_item_data}*/ Profile_Page={props.Profile_Page} AddPost={props.AddPost} updateNewPostText={props.updateNewPostText} /*New_Post_Text={props.Profile_Page.New_Post_Text}*/ /> 
+     <New_posts  Profile_Page={props.Profile_Page} dispatch={props.dispatch} New_Post_Text={props.Profile_Page.New_Post_Text} /> 
      <My_post />
-     <Post1 /*Post_item_data={props.Post_item_data} */Profile_Page={props.Profile_Page} AddPost={props.AddPost}  />       
+     <Post1 Profile_Page={props.Profile_Page} dispatch={props.dispatch}  />       
      
 
    </div>

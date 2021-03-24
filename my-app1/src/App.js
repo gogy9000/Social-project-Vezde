@@ -30,7 +30,7 @@ const App = (props) => {
     <div className = 'app-wrapper-content'>
       <Route exact path='/Dialogs' render={ () => <Dialogs Messages_Page={props.state.Messages_Page} />} />
       
-      <Route exact path='/Profile' render={() => <Profile Profile_Page={props.state.Profile_Page} AddPost={props.AddPost} updateNewPostText={props.updateNewPostText}  />} />
+      <Route exact path='/Profile' render={() => <Profile Profile_Page={props.state.Profile_Page} dispatch={(props.dispatch)}  />} />
       <Route exact path='/Music' render={ () => <Music />} />
       <Route exact path='/Settings' render={() =><Settings />} />
       <Route exact path='/item' render={()=><Panorama />} />

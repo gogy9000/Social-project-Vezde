@@ -2,18 +2,18 @@ import React from 'react';
 import s from './new_posts.module.css';
 
 const New_posts = (props) => {
-    //debugger
+    
     let New_Post_element = React.createRef ()
 
     let AddPost = () => {
-       // debugger
-        let text = New_Post_element.current.value;
-        props.AddPost (text);
-        props.updateNewPostText ('');
+        props.dispatch({type: 'ADD-POST'});
+        
     }
     let On_Post_Change = () => {
+        debugger
         let text = New_Post_element.current.value
-        props.updateNewPostText(text)
+        let action= {type: 'UPDATE-NEW-POST-TEXT', newText: text};
+        props.dispatch(action);
 
     }
     return (
