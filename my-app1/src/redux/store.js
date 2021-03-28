@@ -1,4 +1,4 @@
-import profileReducer from './profile-reducer'
+/*import profileReducer from './profile-reducer'
 import dialogsReducer from './Dialogs-reducer'
 
 let store = {
@@ -56,5 +56,5 @@ let store = {
 }
 
 window.store = store
-export default store ;
+export default store ;*/
    

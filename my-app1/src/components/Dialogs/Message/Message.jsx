@@ -11,7 +11,7 @@ const Messages = (props) => {
 }
 
 const Message = (props) => {
-  debugger
+  //debugger
   let state = props.store.getState().Messages_Page
  
 
