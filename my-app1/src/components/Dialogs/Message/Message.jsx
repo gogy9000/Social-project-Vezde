@@ -1,4 +1,5 @@
 import React from 'react';
+import { sendMessageCreator, updateNewMessageBodyCreator } from '../../../redux/Dialogs-reducer';
 
 const Messages = (props) => {
   
@@ -10,20 +11,33 @@ const Messages = (props) => {
 }
 
 const Message = (props) => {
- // debugger
- /* let Message_data= [
-    { id:1, message:'Fuck you1' },
-    { id:1, message:'Fuck you1' },
-    { id:1, message:'Fuck you1' },
-    { id:1, message:'Fuck you2' },
-    { id:1, message:'Fuck you1' },
-    { id:1, message:'Fuck you1' },
-]*/
+  debugger
+  let state = props.store.getState().Messages_Page
+ 
 
-    let message_element = props.Message_data.map (m =><Messages message={m.message} />)
+    let message_element = state.Message_data.map (m =><Messages message={m.message} />)
+    let newMessageBody = state.newMessageBody
+    
+    let  onSendMessageClick = () => {
+        props.store.dispatch(sendMessageCreator())
+
+    }
+    let onNewMessageChange =(e) => {
+        let body  = e.target.value
+        props.store.dispatch(updateNewMessageBodyCreator(body))
+
+    }
+
     return (
          <div>
-            {message_element}
+           <div>{message_element}</div> 
+           <div>
+                <textarea value={newMessageBody}
+                          onChange={onNewMessageChange}
+                          placeholder='Enter you message' >
+                </textarea>
+           </div>
+           <div><button onClick= {onSendMessageClick} >хуячить</button></div>
           
          </div>       
      )

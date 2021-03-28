@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals'
-import store from './redux/state';
+//import reportWebVitals from './reportWebVitals'
+import store from './redux/store';
 import { BrowserRouter } from 'react-router-dom';
-import  { AddPost, updateNewPostText } from './redux/state';
+//import  { AddPost, updateNewPostText } from './redux/state';
 
 
 
@@ -18,7 +18,7 @@ import  { AddPost, updateNewPostText } from './redux/state';
 
 ReactDOM.render(
   <BrowserRouter>
-    <App state={state} dispatch= {store.dispatch.bind(store)} />
+    <App state={state} dispatch= {store.dispatch.bind(store)} store={store} />
     </BrowserRouter>,
   document.getElementById('root')
 );

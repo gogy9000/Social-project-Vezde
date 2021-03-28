@@ -10,7 +10,7 @@ import Settings from './components/Navbar/Settings/Settings';
 import Dialogs from './components/Dialogs/Dialogs';
 import Panorama from './components/Profile/Panorama/Panorama';
 import Profile1 from './components/Navbar/Profile./Profile1';
-import { AddPost } from './redux/state';
+//import { AddPost } from './redux/state';
  
 
 
@@ -22,13 +22,13 @@ const App = (props) => {
  //debugger
   
   return (
-   <BrowserRouter>
+   
     <div className='app-wrapper' >
       <Header />
       <Navbar />
       
     <div className = 'app-wrapper-content'>
-      <Route exact path='/Dialogs' render={ () => <Dialogs Messages_Page={props.state.Messages_Page} />} />
+      <Route exact path='/Dialogs' render={ () => <Dialogs store={props.store}  />} />
       
       <Route exact path='/Profile' render={() => <Profile Profile_Page={props.state.Profile_Page} dispatch={(props.dispatch)}  />} />
       <Route exact path='/Music' render={ () => <Music />} />
@@ -38,7 +38,8 @@ const App = (props) => {
       <Route exact path='/description/' render={()=><Profile1 />} />
        </div>
     </div>
-    </BrowserRouter>
+    
+    
     ); 
   
 }
