@@ -11,20 +11,21 @@ const Messages = (props) => {
 }
 
 const Message = (props) => {
-  //debugger
-  let state = props.store.getState().Messages_Page
+  debugger
+  let state = props.Messages_Page
  
 
     let message_element = state.Message_data.map (m =><Messages message={m.message} />)
     let newMessageBody = state.newMessageBody
     
     let  onSendMessageClick = () => {
-        props.store.dispatch(sendMessageCreator())
+        props.sendMessage()
 
     }
     let onNewMessageChange =(e) => {
         let body  = e.target.value
-        props.store.dispatch(updateNewMessageBodyCreator(body))
+        props.updateNewMessageBody(body)
+        //props.store.dispatch(updateNewMessageBodyCreator(body))
 
     }
 
@@ -37,7 +38,7 @@ const Message = (props) => {
                           placeholder='Enter you message' >
                 </textarea>
            </div>
-           <div><button onClick= {onSendMessageClick} >хуячить</button></div>
+           <div><button onClick= {onSendMessageClick} >нахуярить сообщение</button></div>
           
          </div>       
      )

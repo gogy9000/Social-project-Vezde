@@ -17,9 +17,10 @@ const Dialog_items = (props) => {
 
 
  const Dialogss = (props) => {
-   let state = props.store.getState().Messages_Page
+   debugger
+   
  
-   let  dialogs_elements = state.Dialogs_data.map (dialog => <Dialog_items name={dialog.name} id={dialog.id} />)
+   let  dialogs_elements = props.Dialogs_data.map (dialog => <Dialog_items name={dialog.name} id={dialog.id} />)
    
     return (     
     <div>    
