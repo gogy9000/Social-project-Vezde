@@ -17,7 +17,7 @@ const Dialog_items = (props) => {
 
 
  const Dialogss = (props) => {
-   debugger
+   //debugger
    
  
    let  dialogs_elements = props.Dialogs_data.map (dialog => <Dialog_items name={dialog.name} id={dialog.id} />)

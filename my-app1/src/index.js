@@ -5,6 +5,7 @@ import App from './App';
 //import reportWebVitals from './reportWebVitals'
 import store from './redux/redux-store';
 import { BrowserRouter } from 'react-router-dom';
+import storeContext from './store-context';
 //import  { AddPost, updateNewPostText } from './redux/state';
 
 
@@ -18,8 +19,10 @@ import { BrowserRouter } from 'react-router-dom';
    //debugger
 ReactDOM.render(
   <BrowserRouter>
-    <App state={state} dispatch= {store.dispatch.bind(store)} store={store} />
-    </BrowserRouter>,
+    <storeContext.Provider value={store}>
+       <App /*state={state} dispatch= {store.dispatch.bind(store)}*/ store={store} />
+    </storeContext.Provider>
+  </BrowserRouter>,
   document.getElementById('root')
 );
   }
