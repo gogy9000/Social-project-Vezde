@@ -4,7 +4,7 @@ const SEND_MESSAGE = 'SEND_MESSAGE';
 //debugger
 
 let initialsState = {
-    //Messages_Page: {
+    Messages_Page: {
 
         Dialogs_data: [
           { id: 1, name: 'Motherfucker2'},
@@ -23,7 +23,7 @@ let initialsState = {
           { id:6, message:'Fuck you1' }, 
         ],
         newMessageBody: ''
-    //}
+    }
 }
 
 const dialogsReducer = (state = initialsState, action) => {

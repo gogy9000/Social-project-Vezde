@@ -1,5 +1,5 @@
 import React from 'react';
-import { sendMessageCreator, updateNewMessageBodyCreator } from '../../../redux/Dialogs-reducer';
+
 
 const Messages = (props) => {
   
@@ -15,7 +15,7 @@ const Message = (props) => {
   let state = props.Messages_Page
  
 
-    let message_element = state.Message_data.map (m =><Messages message={m.message} />)
+    let message_element = state.Messages_Page.Message_data.map (m =><Messages message={m.message} />)
     let newMessageBody = state.newMessageBody
     
     let  onSendMessageClick = () => {

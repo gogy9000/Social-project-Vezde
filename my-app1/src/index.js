@@ -5,7 +5,8 @@ import App from './App';
 //import reportWebVitals from './reportWebVitals'
 import store from './redux/redux-store';
 import { BrowserRouter } from 'react-router-dom';
-import storeContext from './store-context';
+
+import {Provider} from 'react-redux'
 //import  { AddPost, updateNewPostText } from './redux/state';
 
 
@@ -14,25 +15,21 @@ import storeContext from './store-context';
 
 
 
-//debugger
-   let rerenderEntireTree = (state) => {
-   //debugger
+
+
 ReactDOM.render(
-  <BrowserRouter>
-    <storeContext.Provider value={store}>
-       <App /*state={state} dispatch= {store.dispatch.bind(store)}*/ store={store} />
-    </storeContext.Provider>
+  <BrowserRouter  >
+    <Provider store={store} >
+      
+       <App   />
+       </Provider>  
   </BrowserRouter>,
   document.getElementById('root')
 );
-  }
-rerenderEntireTree(store.getState())
+  
 
 
-store.subscribe (() => {
-  let state = store.getState()
-  rerenderEntireTree(state)
-})
+
 
 //rerenderEntireTree(state);
 

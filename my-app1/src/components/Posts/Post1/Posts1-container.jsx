@@ -1,8 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import s from './Posts1.module.css';
-
-const Item = (props) => {
+import Post1 from './Posts1'
+/*const Item = (props) => {
   
   let Path= "/Post_item/"  ;
   return (
@@ -16,12 +17,12 @@ const Item = (props) => {
   )
 }
 
-const Post1 = (props) => {
-  //debugger
-  //let state = props.Post_item_data
+/*const Post1 = (props) => {
+  
+  let state = props
   
   
-   let post_elements =props.Post_item_data.map (p => <Item Post_item={p.Post_item} Like={p.Like} />)
+   let post_elements =state.Profile_Page.Post_item_data.map (p => <Item Post_item={p.Post_item} Like={p.Like} />)
    
     return (
     <div  > 
@@ -31,5 +32,14 @@ const Post1 = (props) => {
         
     </div>
     );
+}*/
+
+let mapStateToProps = (state) => {
+  
+  return {
+    Post_item_data: state.Profile_Page.Profile_Page.Post_item_data
+  }
 }
-export default Post1;
+const Post1Container = connect (mapStateToProps)(Post1)
+
+export default Post1Container;
