@@ -37,7 +37,7 @@ import Post1 from './Posts1'
 let mapStateToProps = (state) => {
   
   return {
-    Post_item_data: state.Profile_Page.Profile_Page.Post_item_data
+    Post_item_data: state.Profile_Page.Post_item_data
   }
 }
 const Post1Container = connect (mapStateToProps)(Post1)

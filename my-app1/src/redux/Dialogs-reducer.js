@@ -4,7 +4,7 @@ const SEND_MESSAGE = 'SEND_MESSAGE';
 //debugger
 
 let initialsState = {
-    Messages_Page: {
+    //Messages_Page: {
 
         Dialogs_data: [
           { id: 1, name: 'Motherfucker2'},
@@ -24,20 +24,32 @@ let initialsState = {
         ],
         newMessageBody: ''
     }
-}
+//}
 
 const dialogsReducer = (state = initialsState, action) => {
+    
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
-            state.newMessageBody = action.body;
-            return state;
+            return {
+                ...state,
+                newMessageBody : action.body
+
+            }
+             
+            
+            
         case SEND_MESSAGE:
-            let body = state.newMessageBody;
-            state.newMessageBody = '';
-            state.Message_data.push({id:8, message: body});
-            return state;
+            let body = state.newMessageBody 
+            return{
+                ...state,
+                newMessageBody: '',
+                Message_data: [...state.Message_data,{id:8, message: body}]
+            }
+            
+            
         default:
-            return state;
+            
+            return state
     }
  
 

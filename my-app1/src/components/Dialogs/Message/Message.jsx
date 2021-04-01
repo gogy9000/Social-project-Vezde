@@ -11,12 +11,12 @@ const Messages = (props) => {
 }
 
 const Message = (props) => {
-  //debugger
-  let state = props.Messages_Page
+  
+  
  
 
-    let message_element = state.Messages_Page.Message_data.map (m =><Messages message={m.message} />)
-    let newMessageBody = state.newMessageBody
+    let message_element = props.Messages_Page.Message_data.map (m =><Messages message={m.message} key={m.id} />)
+    let newMessageBody = props.Messages_Page.newMessageBody
     
     let  onSendMessageClick = () => {
         props.sendMessage()

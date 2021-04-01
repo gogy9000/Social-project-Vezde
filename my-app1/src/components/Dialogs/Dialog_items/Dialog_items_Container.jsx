@@ -9,7 +9,7 @@ import {connect} from 'react-redux'
  let mapStateToProps = (state) =>{
    
     return {
-      Dialogs_data: state.Messages_Page.Messages_Page.Dialogs_data
+      Dialogs_data: state.Messages_Page.Dialogs_data
     }
  }
 

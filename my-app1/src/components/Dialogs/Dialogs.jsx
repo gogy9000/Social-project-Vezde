@@ -5,7 +5,7 @@ import DialogsContainer from './Dialog_items/Dialog_items_Container';
 import MessageContainer from './Message/MessageContainer'
 
 
-const Dialogs = (props) => {
+const Dialogs = () => {
  
   
    return (

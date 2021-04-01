@@ -3,9 +3,16 @@ import { sendMessageCreator, updateNewMessageBodyCreator } from '../../../redux/
 import {connect} from 'react-redux'
 import Message from './Message'
 
+let mapStateToProps = (state) => {
+  
+  return {
+    Messages_Page : state.Messages_Page
+  } 
+
+}
 
 
-let mapDispatchToProps = (dispatch) => {
+let mapDispatchToProps  = (dispatch) => {
   
   return{
     updateNewMessageBody: (body) =>{
@@ -16,16 +23,10 @@ let mapDispatchToProps = (dispatch) => {
     }
   }
 }
-  let mapStateToProps = (state) => {
-    //debugger
-    return {
-      Messages_Page: state.Messages_Page
-    } 
-  
-  }
+ 
 
 
 
-const MessageContainer = connect (mapDispatchToProps, mapStateToProps) (Message)
+const MessageContainer = connect ( mapStateToProps,mapDispatchToProps) (Message)
 
  export default MessageContainer ;
