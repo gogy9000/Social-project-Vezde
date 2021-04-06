@@ -9,7 +9,7 @@ import userPhoto from './../../assets/images/User.png'
     let Users = (props) => {
 
         let pagesCount = Math.ceil (props.totalUsersCount / props.pageSize);
-
+debugger
         let pages = [];
         for (let i=1; i <= pagesCount; i++) {
             pages.push(i);
@@ -20,11 +20,11 @@ import userPhoto from './../../assets/images/User.png'
            
         return <div>
                 <div> 
-                {pages.map(p => {
-                return <span className={props.currentPage === p && styles.selectedPage}
+                {pages.map(pag => {
+                return <span className={props.currentPage === pag && styles.selectedPage}
                              onClick={(e) => {
-                                 props.onPageChanged(p);
-                             }}>{p}</span>
+                                 props.onPageChanged(pag);
+                             }}>{pag}</span>
             })}
                  </div> 
                         

@@ -30,11 +30,11 @@ onPageChanged = (pageNumber) => {
         })
 }
 render() {
-    
+    debugger
     return <>
     {this.props.isFetching ? <Preloader /> : null }
      <Users totalUsersCount={this.props.totalUsersCount}
-        pagesSize={this.props.pagesSize}
+        pageSize={this.props.pageSize}
         currentPage={this.props.currentPage}
         onPageChanged={this.onPageChanged}
         users={this.props.users}
