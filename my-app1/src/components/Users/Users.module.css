@@ -1,6 +1,14 @@
+.Users {
+    grid-area: c;
+    display: grid;
+}
+
 .userPhoto {
     width: 100px;
     height: 70px;
     border-radius: 30px;
     
+}
+.selectPage {
+    font-weight: bold;
 }

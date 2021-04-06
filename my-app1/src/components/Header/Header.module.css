@@ -3,6 +3,7 @@
     background-color: rgb(125, 153, 160);
     display: grid;
     grid-template-columns: 0.09fr 1fr;
+    grid-template-rows: 20fr  0.5fr;
   }
   .header img {
     width: 100px;

@@ -11,9 +11,9 @@ const Posts = () => {
   return (
    <div>
   
-     <New_posts_container /*store={props.store}  /*Profile_Page={props.Profile_Page} dispatch={props.dispatch} New_Post_Text={props.Profile_Page.New_Post_Text}*/ /> 
+     <New_posts_container  /> 
      <My_post />
-     <Post1Container /*store={props.store} /*Profile_Page={props.Profile_Page} dispatch={props.dispatch}*/  />       
+     <Post1Container   />       
      
 
    </div>
