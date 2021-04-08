@@ -3,7 +3,7 @@ import './App.css';
 import React from 'react';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/navbar';
-import Profile from './components/Profile/profile';
+import ProfileContainer from './components/Profile/profile';
 import {Route} from "react-router-dom";
 import Music from './components/Navbar/Music/Music';
 import Settings from './components/Navbar/Settings/Settings';
@@ -31,7 +31,7 @@ const App = () => {
     <div className = 'app-wrapper-content'>
       <Route exact path='/Dialogs' render={ () => <Dialogs  />} />
       
-      <Route exact path='/Profile' render={() => <Profile   />} />
+      <Route exact path='/Profile' render={() => <ProfileContainer   />} />
       <Route exact path='/Users' render={() => <UsersContainer />} />
 
       <Route exact path='/Music' render={ () => <Music />} />

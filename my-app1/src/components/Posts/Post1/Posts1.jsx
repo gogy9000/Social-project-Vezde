@@ -17,8 +17,7 @@ const Item = (props) => {
 }
 
 const Post1 = (props) => {
-  //debugger
-  //let state = props.Post_item_data
+
   
   
    let post_elements =props.Post_item_data.map (p => <Item Post_item={p.Post_item} Like={p.Like} />)

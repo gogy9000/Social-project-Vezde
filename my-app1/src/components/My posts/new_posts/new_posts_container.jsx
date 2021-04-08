@@ -6,14 +6,14 @@ import New_posts from './new_posts';
 
 
  const mapStateToProps = (state) => {
-     debugger
+
      return {
         Post_item_data: state.Profile_Page.Post_item_data,
         New_Post_Text: state.Profile_Page.New_Post_Text  
      }
  }
  const mapDispatchToProps = (dispatch) => {
-    debugger
+
      return {
 
         updateNewPostText: (text) => {
