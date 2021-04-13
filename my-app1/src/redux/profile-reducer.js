@@ -5,13 +5,13 @@ const SET_USER_PROFILE = 'SET_USER_PROFILE'
 let initialsState = {
 
     Post_item_data: [
-        {id: 1, Post_item: 'Hello Motherfucker!', Like: 121},
-        {id: 2, Post_item: 'Hello motherfucker!', Like: 123},
-        {id: 3, Post_item: 'Hello motherfucker!', Like: 123},
+        {id: 1, Post_item: 'Hello Motherfucker!', Like: 121, photos:null,},
+        {id: 2, Post_item: 'Hello motherfucker!', Like: 123, photos:null,},
+        {id: 3, Post_item: 'Hello motherfucker!', Like: 123, photos:null,},
     ],
     New_Post_Text: 'аааа бля уебки!!!',
-    profile: null
 
+profile: null
 }
 
 
@@ -49,9 +49,9 @@ const profileReducer = (state = initialsState, action) => {
 
 }
 
-export const AddPostActionCreator = () => ({type: ADD_POST})
+export const AddPost = () => ({type: ADD_POST})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
-export const updateNewPostTextActionCreator = (text) =>
+export const updateNewPostText = (text) =>
     ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
 export default profileReducer

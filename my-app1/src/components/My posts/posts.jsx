@@ -5,7 +5,7 @@ import My_post from './My post/My_post';
 import New_posts_container from './new_posts/new_posts_container';
 import Post1Container from './../Posts/Post1/Posts1-container'
 
-const Posts = () => {
+const Posts = (props) => {
   
   
   return (

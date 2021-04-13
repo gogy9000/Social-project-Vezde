@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './Header.module.css';
+import Panorama from "../Profile/Panorama/Panorama";
 
 const Header = () => {
     return (
@@ -8,6 +9,8 @@ const Header = () => {
            <div className={s.logo}>
               <h1>Vpizde</h1>
            </div>
+
+
         </header>
     );
 }

@@ -10,7 +10,7 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 let initialsState = {
    
     users: [],
-    pageSize: 50,
+    pageSize: 100,
     totalUsersCount:0,
     currentPage: 1
       

@@ -1,5 +1,5 @@
 .Users {
-    grid-area: c;
+
     display: grid;
 }
 
@@ -9,6 +9,6 @@
     border-radius: 30px;
     
 }
-.selectPage {
+.selectedPage {
     font-weight: bold;
 }

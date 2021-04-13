@@ -1,12 +1,18 @@
 import React from 'react';
 import * as axios from "axios";
 import {connect} from "react-redux";
-import {setUserProfile} from "../../redux/profile-reducer";
-import Posts from '../My posts/posts';
+import {AddPost, setUserProfile, updateNewPostText} from "../../redux/profile-reducer";
+//import Posts from '../My posts/posts';
 import s from './profile.module.css';
 import Description from '../description/description';
-import Panorama from './Panorama/Panorama';
+//import Panorama from './Panorama/Panorama';
 import {NavLink} from 'react-router-dom';
+import New_posts from "../My posts/new_posts/new_posts";
+import My_post from "../My posts/My post/My_post";
+//import Post1Container from "../Posts/Post1/Posts1-container";
+import Post1 from "../Posts/Post1/Posts1";
+import Preloader from "../Preloader/Preloader";
+
 
 class ProfileContainer extends React.Component {
 
@@ -16,27 +22,41 @@ class ProfileContainer extends React.Component {
             .then(response => {
                 this.props.setUserProfile(response.data)
             })
+            
+                
+                
+               
     }
+    
 
     render() {
-        return (
+
+        return <>
+
             <div className={s.Profile}>
-                <Panorama/>
                 <NavLink to="/Description">
-                    <Description {...this.props} profile={this.props.profile}/>
+                    <Description {...this.props} />
                 </NavLink>
 
-                <Posts/>
+                <New_posts {...this.props}   />
+                <My_post />
+
+                
+                
 
             </div>
-
-        );
+</>
+        ;
     }
 
 
 }
-let mapStateToProps =(state) => ({
-    profile: state.Profile_Page.profile
+
+let mapStateToProps = (state) => ({
+    profile: state.Profile_Page.profile,
+    Profile_Page: state.Profile_Page,
+    New_Post_Text: state.Profile_Page.New_Post_Text
 })
 
-export default connect(mapStateToProps, {setUserProfile})(ProfileContainer);
+
+export default connect(mapStateToProps, {setUserProfile,AddPost,updateNewPostText})(ProfileContainer);

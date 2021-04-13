@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import { AddPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/profile-reducer'
 import {connect} from 'react-redux'
 import New_posts from './new_posts';
@@ -33,4 +33,4 @@ const New_posts_container = connect (mapStateToProps,mapDispatchToProps)(New_pos
         
     
 
-export default New_posts_container;
+export default New_posts_container;*/
