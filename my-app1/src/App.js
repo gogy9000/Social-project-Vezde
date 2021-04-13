@@ -31,8 +31,8 @@ const App = () => {
     <div className = 'app-wrapper-content'>
       <Route exact path='/Dialogs' render={ () => <Dialogs  />} />
       
-      <Route exact path='/Profile/' render={() => <ProfileContainer   /> }  />
-      <Route exact path='/Profile/' render= {()=><Post1Container />} />
+      <Route exact path='/profile/:userId?' render={() => <ProfileContainer   /> }  />
+      <Route exact path='/profile/:userId?' render= {()=><Post1Container />} />
 
       <Route exact path='/Users' render={() => <UsersContainer />} />
 

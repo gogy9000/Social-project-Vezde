@@ -9,7 +9,7 @@ const Item = (props) => {
 
     let Path = "/Post_item/";
 
-debugger
+
     return <>
 
         <div className={s.Post1}>

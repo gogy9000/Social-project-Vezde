@@ -7,6 +7,7 @@ import s from './profile.module.css';
 import Description from '../description/description';
 //import Panorama from './Panorama/Panorama';
 import {NavLink} from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import New_posts from "../My posts/new_posts/new_posts";
 import My_post from "../My posts/My post/My_post";
 //import Post1Container from "../Posts/Post1/Posts1-container";
@@ -18,7 +19,12 @@ class ProfileContainer extends React.Component {
 
 
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+        debugger
+        let  userId = this.props.match.params.userId
+        if (!userId) {
+            userId = 2
+        }
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+userId)
             .then(response => {
                 this.props.setUserProfile(response.data)
             })
@@ -58,5 +64,6 @@ let mapStateToProps = (state) => ({
     New_Post_Text: state.Profile_Page.New_Post_Text
 })
 
+let WithUrlDataContainerComponent= withRouter (ProfileContainer)
 
-export default connect(mapStateToProps, {setUserProfile,AddPost,updateNewPostText})(ProfileContainer);
+export default connect(mapStateToProps, {setUserProfile,AddPost,updateNewPostText})(WithUrlDataContainerComponent);
