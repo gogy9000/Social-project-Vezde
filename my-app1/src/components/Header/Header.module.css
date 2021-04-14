@@ -2,8 +2,10 @@
     grid-area: h;
     background-color: rgb(125, 153, 160);
     display: grid;
-    grid-template-columns: 0.09fr 1fr;
-    grid-template-rows: 20fr  0.5fr;
+    grid-auto-columns: 1fr 1fr 1fr;
+
+
+
   }
   .header img {
     width: 100px;
@@ -13,6 +15,12 @@
   }
   .logo {
     padding: 10px;
-    margin-left: 45%;
 
+  }
+  .loginBlock {
+
+  }
+  .loginBlock a {
+      color: #f0ebeb;
+      text-decoration: none;
   }

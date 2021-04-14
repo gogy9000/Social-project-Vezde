@@ -12,6 +12,7 @@ import Panorama from './components/Profile/Panorama/Panorama';
 import Profile1 from './components/Navbar/Profile./Profile1';
 import UsersContainer from './components/Users/UsersContainer';
 import Post1Container from '../src/components/Posts/Post1/Posts1-container'
+import HeaderContainer from "./components/Header/HeaderContainer";
  
 
 
@@ -25,7 +26,7 @@ const App = () => {
   return (
    
     <div className='app-wrapper' >
-      <Header />
+      <HeaderContainer />
       <Navbar />
       
     <div className = 'app-wrapper-content'>

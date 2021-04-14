@@ -8,6 +8,7 @@
   grid-template-rows: 0.1fr 1fr ;
   grid-template-columns:  0.15fr 1fr;
   grid-gap: 3px;
+
   
 }
 
@@ -15,6 +16,9 @@
   grid-area:c;
   background-color: rgb(80, 97, 105);
 
+}
+.app-wrapper a {
+  text-decoration: none;
 }
 
 
