@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Users.module.css'
 import userPhoto from './../../assets/images/User.png'
 import { NavLink } from 'react-router-dom';
+import * as axios from "axios";
 
 
 
@@ -21,7 +22,7 @@ import { NavLink } from 'react-router-dom';
         
         
 
-           
+
         return <>
                 <div> 
                 {pages.map(p => {
@@ -34,7 +35,7 @@ import { NavLink } from 'react-router-dom';
                         
             
         
-               
+
              { props.users.map( u => 
               <div key={u.id}>
                 
@@ -45,7 +46,45 @@ import { NavLink } from 'react-router-dom';
                         </NavLink>
                     </div>
                     <div>
-                        {u.followed ?<button onClick = {()=>{props.unfollow(u.id)}}> Unfollow</button>: <button onClick = {()=>{props.follow(u.id)}} >follow</button>}
+                        {u.followed ?<button disabled={props.followingInProgress.some(id=> id===u.id)} onClick = {()=>{
+                            props.toggleFollowingProgress(true, u.id)
+                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                withCredentials: true,
+                                headers: {
+                                    "API-KEY": "6c4b7d1a-3825-42c9-9166-9315565e1f90"
+                                }
+                            })
+                                .then(response =>{
+                                    if (response.data.resultCode === 0) {
+                                        props.unfollow(u.id)
+                                    }
+                                    props.toggleFollowingProgress(false, u.id)
+
+                                })
+
+
+                        }}> Unfollow</button>
+
+                            : <button disabled={props.followingInProgress.some(id=> id===u.id)}  onClick = {()=>{
+                                debugger
+                                props.toggleFollowingProgress(true,u.id)
+
+                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{}, {
+                                    withCredentials: true,
+                                    headers: {
+                                        "API-KEY": "6c4b7d1a-3825-42c9-9166-9315565e1f90"
+                                    }
+                                })
+
+                                    .then(response =>{
+                                        if (response.data.resultCode === 0) {
+                                            props.follow(u.id)
+                                        }
+                                        props.toggleFollowingProgress(false, u.id)
+
+                                    })
+
+                            }} >follow</button>}
                         
                     </div>
                 
@@ -56,5 +95,5 @@ import { NavLink } from 'react-router-dom';
             }   
         </>      
  }           
-                      
+
 export default Users

@@ -1,7 +1,7 @@
 
 import './App.css';
 import React from 'react';
-import Header from './components/Header/Header';
+//import Header from './components/Header/Header';
 import Navbar from './components/Navbar/navbar';
 import ProfileContainer from './components/Profile/profile';
 import {Route} from "react-router-dom";
@@ -13,6 +13,7 @@ import Profile1 from './components/Navbar/Profile./Profile1';
 import UsersContainer from './components/Users/UsersContainer';
 import Post1Container from '../src/components/Posts/Post1/Posts1-container'
 import HeaderContainer from "./components/Header/HeaderContainer";
+
  
 
 
@@ -22,16 +23,16 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 
 const App = () => {
  
-  
+
   return (
-   
+
     <div className='app-wrapper' >
       <HeaderContainer />
       <Navbar />
-      
+
     <div className = 'app-wrapper-content'>
       <Route exact path='/Dialogs' render={ () => <Dialogs  />} />
-      
+
       <Route exact path='/profile/:userId?' render={() => <ProfileContainer   /> }  />
       <Route exact path='/profile/:userId?' render= {()=><Post1Container />} />
 
@@ -44,9 +45,9 @@ const App = () => {
       <Route exact path='/description/' render={()=><Profile1 />} />
        </div>
     </div>
-    
-    
-    ); 
+
+
+    );
   
 }
     
