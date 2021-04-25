@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect} from "react-router-dom";
 
 
 const Messages = (props) => {
@@ -25,10 +26,10 @@ const Message = (props) => {
     let onNewMessageChange =(e) => {
         let body  = e.target.value
         props.updateNewMessageBody(body)
-        //props.store.dispatch(updateNewMessageBodyCreator(body))
+
 
     }
-
+     if (props.isAuth === true ) return <Redirect to={'/Login'} />
     return (
          <div>
            <div>{message_element}</div> 

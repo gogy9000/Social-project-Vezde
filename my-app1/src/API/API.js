@@ -4,7 +4,7 @@ import * as axios from "axios";
      withCredentials: true,
      baseURL: 'https://social-network.samuraijs.com/api/1.0/',
      headers: {
-         "API-KEY": "6c4b7d1a-3825-42c9-9166-9315565e1f90"
+         "API-KEY": '9998b652-b16b-4b0d-b784-98bbaf34a6e7'
      }
  });
 
@@ -16,9 +16,20 @@ import * as axios from "axios";
              });
      },
      follow(userId) {
-       return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+       return instance.post(`follow/${userId}`)
      },
      unfollow(userId) {
-         return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+         return instance.delete(`follow/${userId}`)
+     },
+     getProfile(userId) {
+         return  instance.get(`profile/`+userId)
+     },
+
+
+
+ }
+ export const authAPI = {
+     me() {
+         return  instance.get (`auth/me`)
      }
  }

@@ -1,18 +1,15 @@
 import React from 'react';
-import * as axios from "axios";
 import {connect} from "react-redux";
-import {AddPost, setUserProfile, updateNewPostText} from "../../redux/profile-reducer";
-//import Posts from '../My posts/posts';
+import {AddPost, getUserProfile, updateNewPostText} from "../../redux/profile-reducer";
 import s from './profile.module.css';
 import Description from '../description/description';
-//import Panorama from './Panorama/Panorama';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Redirect} from 'react-router-dom';
 import { withRouter} from 'react-router-dom';
 import New_posts from "../My posts/new_posts/new_posts";
 import My_post from "../My posts/My post/My_post";
-//import Post1Container from "../Posts/Post1/Posts1-container";
-import Post1 from "../Posts/Post1/Posts1";
-import Preloader from "../Preloader/Preloader";
+import {withAuthRedirect} from "../../HOC/withAuthRedirect";
+
+
 
 
 class ProfileContainer extends React.Component {
@@ -24,10 +21,8 @@ class ProfileContainer extends React.Component {
         if (!userId) {
             userId = 2
         }
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+userId)
-            .then(response => {
-                this.props.setUserProfile(response.data)
-            })
+        this.props.getUserProfile(userId)
+
             
                 
                 
@@ -57,13 +52,18 @@ class ProfileContainer extends React.Component {
 
 
 }
+let AuthRedirectComponent= withAuthRedirect(ProfileContainer)
+
+
+
 
 let mapStateToProps = (state) => ({
     profile: state.Profile_Page.profile,
     Profile_Page: state.Profile_Page,
-    New_Post_Text: state.Profile_Page.New_Post_Text
+    New_Post_Text: state.Profile_Page.New_Post_Text,
+
 })
 
-let WithUrlDataContainerComponent= withRouter (ProfileContainer)
+let WithUrlDataContainerComponent= withRouter (AuthRedirectComponent)
 
-export default connect(mapStateToProps, {setUserProfile,AddPost,updateNewPostText})(WithUrlDataContainerComponent);
+export default connect(mapStateToProps, {AddPost,updateNewPostText,getUserProfile})(WithUrlDataContainerComponent);
