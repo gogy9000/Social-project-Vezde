@@ -36,9 +36,9 @@ class ProfileContainer extends React.Component {
         return <>
 
             <div className={s.Profile}>
-                <NavLink to="/Description">
+
                     <Description {...this.props} />
-                </NavLink>
+
 
                 <New_posts {...this.props}   />
                 <My_post />
