@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import Message from './Message'
 import {Redirect} from "react-router-dom";
 import {withAuthRedirect} from "../../../HOC/withAuthRedirect";
+import {compose} from "redux";
 
 
 
@@ -29,10 +30,7 @@ let mapDispatchToProps  = (dispatch) => {
   }
 }
 
-
-let AuthRedirectComponent=withAuthRedirect(Message)
-
-
-const MessageContainer = connect ( mapStateToProps,mapDispatchToProps) (AuthRedirectComponent)
-
- export default MessageContainer ;
+export default compose(
+    connect ( mapStateToProps,mapDispatchToProps),
+    withAuthRedirect
+)(Message)
