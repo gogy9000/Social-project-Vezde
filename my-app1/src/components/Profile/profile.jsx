@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {AddPost, getUserProfile, updateNewPostText} from "../../redux/profile-reducer";
+import {AddPost, getStatus, getUserProfile, updateNewPostText, updateStatus} from "../../redux/profile-reducer";
 import s from './profile.module.css';
 import Description from '../description/description';
 import {NavLink, Redirect} from 'react-router-dom';
@@ -23,12 +23,16 @@ class ProfileContainer extends React.Component {
             userId = 2
         }
         this.props.getUserProfile(userId)
+        setTimeout(()=> {
 
+
+            this.props.getStatus(userId)
+        },1000)}
             
                 
                 
                
-    }
+
     
 
     render() {
@@ -37,7 +41,7 @@ class ProfileContainer extends React.Component {
 
             <div className={s.Profile}>
 
-                    <Description {...this.props} />
+                    <Description {...this.props} status={this.props.status} updateStatus={this.props.updateStatus} />
 
 
                 <New_posts {...this.props}   />
@@ -58,11 +62,12 @@ let mapStateToProps = (state) => ({
     profile: state.Profile_Page.profile,
     Profile_Page: state.Profile_Page,
     New_Post_Text: state.Profile_Page.New_Post_Text,
+    status: state.Profile_Page.status
 
 })
 
 export default compose(
-    connect(mapStateToProps, {AddPost,updateNewPostText,getUserProfile}),
+    connect(mapStateToProps, {AddPost,updateNewPostText,getUserProfile,getStatus,updateStatus}),
     withRouter,
     withAuthRedirect)(ProfileContainer)
 
