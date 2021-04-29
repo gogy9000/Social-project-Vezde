@@ -66,7 +66,7 @@ export const updateNewPostText = (text) =>
     ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
 export const getUserProfile = (userId) => (dispatch) => {
-    debugger
+
     usersAPI.getProfile(userId)
 
         .then(response => {

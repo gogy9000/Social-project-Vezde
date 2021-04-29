@@ -3,7 +3,7 @@ import s from './Header.module.css';
 import {NavLink} from "react-router-dom";
 
 const Header = (props) => {
-debugger
+
     return (
         <header className={s.header}>
            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQN1aHcEjTCfF7jhxIcJB1jyL_4BYEvoZRdQ&usqp=CAU' />
