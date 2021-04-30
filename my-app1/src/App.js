@@ -13,7 +13,7 @@ import Profile1 from './components/Navbar/Profile./Profile1';
 import UsersContainer from './components/Users/UsersContainer';
 import Post1Container from '../src/components/Posts/Post1/Posts1-container'
 import HeaderContainer from "./components/Header/HeaderContainer";
-import login from "./components/login/login";
+import Login from "./components/login/login";
 
  
 
@@ -44,6 +44,7 @@ const App = () => {
       <Route exact path='/item' render={()=><Panorama />} />
       <Route exact path='/Post_item/' render={()=><Panorama />} />
       <Route exact path='/description/' render={()=><Profile1 />} />
+      <Route exact path='/Login/' render={()=><Login/>} />
 
        </div>
     </div>
