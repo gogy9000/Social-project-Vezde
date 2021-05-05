@@ -1,35 +1,36 @@
 import React from 'react';
 import s from './new_posts.module.css';
-
+import {Field, reduxForm} from "redux-form";
 
 
 const New_posts = (props) => {
-    
-    let New_Post_element = React.createRef ()
 
-    let onAddPost = () => {
-        props.AddPost ();
-       
-        
+
+    let onAddPost = (values) => {
+        props.AddPost(values.newPostText);
     }
-    let On_Post_Change = () => {
-        
-        let text = New_Post_element.current.value
-        props.updateNewPostText(text);
 
-       
-
-    }
     return (
-        <div className= {s.new_posts}>
-            <div>Мой пост:</div>
-            <div>
-              <textarea onChange={On_Post_Change} ref={New_Post_element} value={props.New_Post_Text}/>
-            </div>
-            <button onClick={onAddPost}>нахуярить пост</button>
-        </div>
-    
-        
-    );
+        <>
+            <AddNewPostFormRedux className={s.new_posts} onSubmit={onAddPost}/>
+        </>
+    )
+
+
 }
+
+const AddNewPostForm = (props) => {
+    return (
+
+        <form onSubmit={props.handleSubmit}>
+            <div><Field component='textarea' name='newPostText' placeholder='Enter you Post'></Field></div>
+            <div>
+                <button>ADD POST</button>
+            </div>
+        </form>
+    )
+}
+
+const AddNewPostFormRedux = reduxForm({form: 'ProfileAddNewPostForm'})(AddNewPostForm)
+
 export default New_posts;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-//import Dialogs_data from '../Dialogs_data/Dialogs_data';
+
  
 
 const Dialog_items = (props) => {
@@ -17,12 +17,12 @@ const Dialog_items = (props) => {
 
 
  const Dialogss = (props) => {
-   //debugger
+
    
  
    let  dialogs_elements = props.Dialogs_data.map (dialog => <Dialog_items name={dialog.name} id={dialog.id} key={dialog.id} />)
    
-    return (     
+    return (
     <div>    
        { dialogs_elements }
     </div>
