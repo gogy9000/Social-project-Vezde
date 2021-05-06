@@ -1,6 +1,8 @@
 import React from 'react';
 import {Redirect} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
+import {Textarea} from "../../common/FormsControls/FormsControls";
+import {maxLengthCreator, requiredField} from "../../../utils/validators/validators";
 
 
 const Messages = (props) => {
@@ -29,14 +31,15 @@ const Message = (props) => {
         </>
     )
 }
+const maxLength50 = maxLengthCreator(50)
 
-const AddMessageForms = (props) => {
+ const AddMessageForms = (props) => {
 
 
     return (
 
         <form onSubmit={props.handleSubmit}>
-            <div><Field component='textarea' name='newMessageBody' placeholder='Enter you message'/></div>
+            <div><Field component={Textarea} validate={[requiredField,maxLength50]} name='newMessageBody' placeholder='Enter you message'/></div>
             <div>
                 <button>нахуярить сообщение</button>
             </div>
