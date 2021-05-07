@@ -17,7 +17,7 @@ const Messages = (props) => {
 
 const Message = (props) => {
     let message_element = props.Messages_Page.Message_data.map(m => <Messages message={m.message} key={m.id}/>)
-    if (props.isAuth === true) return <Redirect to={'/Login'}/>
+    if (props.isAuth === false) return <Redirect to={'/Login'}/>
 
    let addMessage = (values) => {
         props.sendMessage(values.newMessageBody)
