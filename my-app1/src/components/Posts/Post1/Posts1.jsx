@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import s from './Posts1.module.css';
 import user from '../../../assets/images/User.png'
 import Preloader from "../../Preloader/Preloader";
@@ -15,7 +15,7 @@ const Item = (props) => {
         <div className={s.Post1}>
 
 
-            <img src={ props.photos}/>
+            <img src={props.photos} />
             <p><NavLink to={Path}>{props.Post_item} </NavLink></p>
 
             <NavLink to={Path}>Like {props.Like}</NavLink>
@@ -33,7 +33,7 @@ let Post1 = (props) => {
     }
 
     let post_elements = props.Profile_Page.Post_item_data.map(p => <Item Post_item={p.Post_item} Like={p.Like}
-                                                                         photos={props.profile.photos.small}/>)
+        photos={props.profile.photos.small} />)
 
     return (
         <div>
