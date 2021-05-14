@@ -1,10 +1,10 @@
 
 import './App.css';
-import React from 'react';
+import React, {Component} from 'react';
 //import Header from './components/Header/Header';
 import Navbar from './components/Navbar/navbar';
 import ProfileContainer from './components/Profile/profile';
-import {Route} from "react-router-dom";
+import {Route, withRouter} from "react-router-dom";
 import Music from './components/Navbar/Music/Music';
 import Settings from './components/Navbar/Settings/Settings';
 import Dialogs from './components/Dialogs/Dialogs';
@@ -14,7 +14,10 @@ import UsersContainer from './components/Users/UsersContainer';
 import Post1Container from '../src/components/Posts/Post1/Posts1-container'
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/login/login";
-
+import { connect } from 'react-redux';
+import {initializeApp} from './redux/App-reducer';
+import { compose } from 'redux';
+import Preloader from './components/Preloader/Preloader';
  
 
 
@@ -22,9 +25,16 @@ import Login from "./components/login/login";
 
 
 
-const App = () => {
- 
+class App extends Component  {
 
+  componentDidMount() {
+    this.props.initializeApp();
+}
+ 
+  render() { 
+    if (!this.props.initialized) {
+      return <Preloader />
+    }
   return (
 
     <div className='app-wrapper' >
@@ -44,18 +54,22 @@ const App = () => {
       <Route exact path='/item' render={()=><Panorama />} />
       <Route exact path='/Post_item/' render={()=><Panorama />} />
       <Route exact path='/description/' render={()=><Profile1 />} />
-      <Route exact path='/Login/' render={()=><Login/>} />
+      <Route exact path='/Login' render={()=><Login/>} />
 
        </div>
     </div>
 
 
     );
-  
+  }
 }
     
     
   
+const mapStateToProps =(state) => ({
+  initialized : state.app.initialized
+})
 
-
-export default App;
+export default compose(
+withRouter,
+connect(mapStateToProps,{initializeApp})) (App);
