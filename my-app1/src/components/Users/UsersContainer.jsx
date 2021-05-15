@@ -44,8 +44,10 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
+    console.log ('перерисовка')
 
     return {
+        
         users: getUsers(state),
         pageSize: getPageSizes(state),
         totalUsersCount: getTotalUsersCount(state),
