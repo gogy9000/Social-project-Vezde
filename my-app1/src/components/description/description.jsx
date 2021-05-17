@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './description.module.css' ;
 import Preloader from "../Preloader/Preloader";
-import ProfileStatus from './../Profile/ProfileStatus'
+//import ProfileStatus from './../Profile/ProfileStatus'
 import ProfileStatusWithHooks from '../Profile/ProfileStatusWithHooks';
 
 const Description = (props) => {
