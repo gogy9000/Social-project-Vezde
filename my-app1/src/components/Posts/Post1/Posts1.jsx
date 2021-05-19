@@ -26,14 +26,18 @@ const Item = (props) => {
     </>
 }
 
-let Post1 = (props) => {
+let Post1 =React.memo (props => {
+    console.log('посты отрендерились')
 
     if (!props.profile) {
         return <div>ответ не пришел</div>
     }
 
-    let post_elements = props.Profile_Page.Post_item_data.map(p => <Item Post_item={p.Post_item} Like={p.Like}
+    let post_elements =
+     [...props.Profile_Page.Post_item_data].reverse().map(p => <Item Post_item={p.Post_item} Like={p.Like}
         photos={props.profile.photos.small} />)
+        
+        
 
     return (
         <div>
@@ -43,5 +47,5 @@ let Post1 = (props) => {
 
         </div>
     );
-}
+})
 export default Post1;
