@@ -28,7 +28,8 @@ export const initializeApp = () => (dispatch) => {
         .then ( () => {
         dispatch(initializedSuccess());
 
-})}
+})
+}
 
 
 

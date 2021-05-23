@@ -1,7 +1,6 @@
 
 import './App.css';
 import React, {Component} from 'react';
-//import Header from './components/Header/Header';
 import Navbar from './components/Navbar/navbar';
 import ProfileContainer from './components/Profile/profile';
 import {Route, withRouter} from "react-router-dom";

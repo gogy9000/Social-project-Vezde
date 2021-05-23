@@ -15,6 +15,7 @@ const LoginForm = (props) => {
     return <div>
 
         <form onSubmit={props.handleSubmit}>
+            
             <div><Field placeholder={'email'} name={'email'} component={Input} validate={[requiredField,maxLength10]}/></div>
             <div><Field placeholder={'password'} name={'password'} component={Input} validate={[requiredField,maxLength10]}/></div>
             <div><Field type={'checkbox'} name={'rememberMe'} component={Input} validate={[requiredField,maxLength10]}/>Remember me</div>
