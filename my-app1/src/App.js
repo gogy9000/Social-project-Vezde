@@ -6,7 +6,7 @@ import ProfileContainer from './components/Profile/profile';
 import {Route, withRouter} from "react-router-dom";
 import Music from './components/Navbar/Music/Music';
 import Settings from './components/Navbar/Settings/Settings';
-import Dialogs from './components/Dialogs/Dialogs';
+//import Dialogs from './components/Dialogs/Dialogs';
 import Panorama from './components/Profile/Panorama/Panorama';
 import Profile1 from './components/Navbar/Profile./Profile1';
 import UsersContainer from './components/Users/UsersContainer';
@@ -17,6 +17,9 @@ import { connect } from 'react-redux';
 import {initializeApp} from './redux/App-reducer';
 import { compose } from 'redux';
 import Preloader from './components/Preloader/Preloader';
+import { withSuspense } from './HOC/withSuspense';
+
+const Dialogs = React.lazy(()=> import('./components/Dialogs/Dialogs'))
  
 
 
@@ -41,7 +44,7 @@ class App extends Component  {
       <Navbar />
 
     <div className = 'app-wrapper-content'>
-      <Route exact path='/Dialogs' render={ () => <Dialogs  />} />
+      <Route exact path='/Dialogs' render={withSuspense(Dialogs)} />
 
       <Route exact path='/profile/:userId?' render={() => <ProfileContainer   /> }  />
       <Route exact path='/profile/:userId?' render= {()=><Post1Container />} />
