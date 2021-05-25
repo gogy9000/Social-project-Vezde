@@ -3,21 +3,30 @@ import s from './description.module.css' ;
 import Preloader from "../Preloader/Preloader";
 //import ProfileStatus from './../Profile/ProfileStatus'
 import ProfileStatusWithHooks from '../Profile/ProfileStatusWithHooks';
+import userPhoto from '../../assets/images/User.png'
 
-const Description = (props) => {
+const Description = ({status,updateStatus,profile,savePhoto,isOwner}) => {
 
-    if (!props.profile){
+    if (!profile){
         return <Preloader />
     }
+
+    const onMainPhotoSelected =(e)=>{
+        if (e.target.files.length) {
+            savePhoto(e.target.files[0])
+        }
+    }
+
     return (
         < div className={s.Description}>
            <p>
-               <img src ={props.profile.photos.large}/>
+               <img src ={profile.photos.large || userPhoto}/>
           </p>
-            <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
-            <div>Ник: {props.profile.fullName}</div>
-            <div>Статус: {props.profile.aboutMe}</div>
-            <div>Место службы: {props.profile.lookingForAJobDescription}</div>
+          {isOwner && <input type={'file'} onChange={onMainPhotoSelected}/>}
+            <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+            <div>Ник: {profile.fullName}</div>
+            <div>Статус: {profile.aboutMe}</div>
+            <div>Место службы: {profile.lookingForAJobDescription}</div>
 
 
 

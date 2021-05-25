@@ -9,7 +9,7 @@ import * as axios from "axios";
  });
 
  export const usersAPI = {
-     getUsers(currentPage = 1, pageSize = 100) {
+     getUsers(currentPage = 1, pageSize = 10) {
          return instance.get(`users?page=${currentPage}&count=${pageSize}`)
              .then(response => {
                  return response.data;
@@ -35,6 +35,15 @@ import * as axios from "axios";
      },
      updateStatus(status) {
          return instance.put(`profile/status/`,{status:status} )
+     },
+     savePhoto(photoFile) {
+         const formData = new FormData()
+         formData.append('image',photoFile)
+         return instance.put(`profile/photo`, formData,{
+             headers: {
+                 'Content-Type' : 'multipart/form-data'
+             }
+         })
      }
  }
 
