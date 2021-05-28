@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
  
 
-const Dialog_items = (props) => {
+const DialogItems = (props) => {
 
     let Path = "/item/" + props.id ;
  
@@ -16,11 +16,11 @@ const Dialog_items = (props) => {
 
 
 
- const Dialogss = (props) => {
+ const Dialogs = (props) => {
 
    
  
-   let  dialogs_elements = props.Dialogs_data.map (dialog => <Dialog_items name={dialog.name} id={dialog.id} key={dialog.id} />)
+   const  dialogs_elements = props.Dialogs_data.map (dialog => <DialogItems name={dialog.name} id={dialog.id} key={dialog.id} />)
    
     return (
     <div>    
@@ -29,4 +29,4 @@ const Dialog_items = (props) => {
     )
  }
  
- export default Dialogss;
+ export default Dialogs;

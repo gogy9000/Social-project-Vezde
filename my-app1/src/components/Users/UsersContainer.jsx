@@ -9,7 +9,6 @@ import {
 } from '../../redux/Users-reducer'
 import {getPageSizes,getTotalUsersCount,getCurrentPage,getIsFetching,getFollowingInProgress, getUsers} from './../../redux/Users-selectors'
 import Users from './Users'
-
 import Preloader from '../Preloader/Preloader'
 import {withAuthRedirect} from "../../HOC/withAuthRedirect";
 import {compose} from "redux";
@@ -44,7 +43,7 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-    console.log ('перерисовка')
+   
 
     return {
         
@@ -60,7 +59,7 @@ let mapStateToProps = (state) => {
 
 
 
-
+console.log ('контейнер юзер')
 export default compose(
     withAuthRedirect,
     connect(mapStateToProps, {

@@ -6,7 +6,6 @@ import ProfileContainer from './components/Profile/profile';
 import {Route, withRouter} from "react-router-dom";
 import Music from './components/Navbar/Music/Music';
 import Settings from './components/Navbar/Settings/Settings';
-//import Dialogs from './components/Dialogs/Dialogs';
 import Panorama from './components/Profile/Panorama/Panorama';
 import Profile1 from './components/Navbar/Profile./Profile1';
 import UsersContainer from './components/Users/UsersContainer';

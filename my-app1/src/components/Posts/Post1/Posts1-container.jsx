@@ -1,9 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {setUserProfile} from '../../../redux/profile-reducer'
-import Preloader from '../../Preloader/Preloader'
-import user from '../../../assets/images/User.png'
-
 import Post1 from './Posts1'
 import * as axios from "axios";
 
@@ -11,10 +8,10 @@ import * as axios from "axios";
 
 class Post1Container extends React.Component {
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
-            .then(response => {
-                this.props.setUserProfile(response.data)
-            })
+     //   axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+        //    .then(response => {
+        //        this.props.setUserProfile(response.data)
+       //     })
         }
 
 render(){

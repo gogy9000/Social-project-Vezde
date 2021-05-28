@@ -1,9 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Posts1.module.css';
-import user from '../../../assets/images/User.png'
-import Preloader from "../../Preloader/Preloader";
-import userPhoto from "../../../assets/images/User.png";
+
 
 const Item = (props) => {
 
@@ -26,18 +24,18 @@ const Item = (props) => {
     </>
 }
 
-let Post1 =React.memo (props => {
-    console.log('посты отрендерились')
+let Post1 = React.memo(props => {
+    
 
     if (!props.profile) {
         return <div>ответ не пришел</div>
     }
 
     let post_elements =
-     [...props.Profile_Page.Post_item_data].reverse().map(p => <Item Post_item={p.Post_item} Like={p.Like}
-        photos={props.profile.photos.small} />)
-        
-        
+        [...props.Profile_Page.Post_item_data].reverse().map(p => <Item Post_item={p.Post_item} Like={p.Like} key={p.id}
+            photos={props.profile.photos.small} />)
+
+
 
     return (
         <div>
@@ -48,4 +46,5 @@ let Post1 =React.memo (props => {
         </div>
     );
 })
+console.log('посты отрендерились')
 export default Post1;

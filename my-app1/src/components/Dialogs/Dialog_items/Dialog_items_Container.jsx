@@ -1,7 +1,7 @@
-import React from 'react';
 
 
-import Dialogss from './Dialog_items';
+
+import Dialogs from './Dialog_items';
 import {connect} from 'react-redux'
  
 
@@ -14,7 +14,7 @@ import {connect} from 'react-redux'
  }
 
 
- const DialogsContainer = connect (mapStateToProps)(Dialogss)
+ const DialogsContainer = connect (mapStateToProps)(Dialogs)
  
   
 
