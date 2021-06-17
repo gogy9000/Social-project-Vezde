@@ -8,7 +8,7 @@ import { createSelector } from "reselect"
  
 
 export const getUsers = createSelector (getUsersSelector, (users) => {
-    debugger
+   
     return users.filter (u => true)
 } )
 

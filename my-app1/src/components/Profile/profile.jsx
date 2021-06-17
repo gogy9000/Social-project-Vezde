@@ -6,7 +6,9 @@ import {
     AddPost,
     updateStatus,
     savePhoto,
-    saveProfile
+    saveProfile,
+    setUserProfile,
+
 } from "../../redux/profile-reducer";
 import s from './profile.module.css';
 import Description from '../description/description';
@@ -14,6 +16,9 @@ import { withRouter } from 'react-router-dom';
 import NewPosts from "../My posts/new_posts/new_posts";
 import MyPost from "../My posts/My post/My_post";
 import { compose } from "redux";
+
+import Post1 from '../Posts/Post1/Posts1';
+import axios from 'axios';
 
 
 
@@ -38,6 +43,7 @@ class ProfileContainer extends React.Component {
     componentDidMount() {
 
         this.refreshProfile()
+
 
     }
 
@@ -65,11 +71,15 @@ class ProfileContainer extends React.Component {
                     updateStatus={this.props.updateStatus}
                     isOwner={!this.props.match.params.userId}
                     savePhoto={this.props.savePhoto}
-                    saveProfile={this.props.saveProfile} />
+                    saveProfile={this.props.saveProfile}
 
+                />
 
                 <NewPosts {...this.props} />
-                <MyPost />
+                <MyPost profile={this.props.profile} />
+                < Post1 {...this.props}
+                    Profile_Page={this.props.Profile_Page}
+                    profile={this.props.profile} />
 
 
 
@@ -88,12 +98,15 @@ let mapStateToProps = (state) => ({
     New_Post_Text: state.Profile_Page.New_Post_Text,
     status: state.Profile_Page.status,
     authorizedUserId: state.auth.userId,
-    isAuth: state.isAuth
+    isAuth: state.isAuth,
+
+
+
 
 })
 
 export default compose(
-    connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, AddPost, savePhoto, saveProfile }),
+    connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, AddPost, savePhoto, saveProfile, setUserProfile, }),
     withRouter,
 )(ProfileContainer)
 

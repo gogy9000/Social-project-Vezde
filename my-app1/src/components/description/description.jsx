@@ -3,12 +3,12 @@ import s from './description.module.css';
 import Preloader from "../Preloader/Preloader";
 import ProfileStatusWithHooks from '../Profile/ProfileStatusWithHooks';
 import userPhoto from '../../assets/images/User.png'
-import profile from '../Profile/profile';
+
 import ProfileDataForm from '../Profile/ProfileDataForm'
 
-const Description = ({ status, updateStatus, profile, savePhoto, isOwner,saveProfile }) => {
+const Description = ({ weather, status, updateStatus, profile, savePhoto, isOwner, saveProfile }) => {
 
-    const [editMode, setEditMode] =useState (false)
+    const [editMode, setEditMode] = useState(false)
 
     if (!profile) {
         return <Preloader />
@@ -37,25 +37,24 @@ const Description = ({ status, updateStatus, profile, savePhoto, isOwner,savePro
             {isOwner && <input type={'file'} onChange={onMainPhotoSelected} />}
 
             <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
-            
+
             {editMode
-            ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit} />
-            : <ProfileData goToEditMode={()=>{setEditMode(true)}} profile={profile} isOwner={isOwner} />}
-            
+                ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit} />
+                : <ProfileData goToEditMode={() => { setEditMode(true) }} profile={profile} isOwner={isOwner} />}
 
         </div>
     );
 
 
 }
-const ProfileData = ({profile, isOwner, goToEditMode}) => {
+const ProfileData = ({ profile, isOwner, goToEditMode }) => {
     return <div>
-      
+
         <div>Ник: {profile.fullName}</div>
         <div>Статус: {profile.aboutMe}</div>
         <div>Место службы: {profile.lookingForAJobDescription}</div>
         <div>aboutMe :{profile.aboutMe ? 'Yes' : 'No'}</div>
-        { isOwner && <div><button onClick={goToEditMode}>edit</button></div>}
+        {isOwner && <div><button onClick={goToEditMode}>edit</button></div>}
         <div><b>Contact </b>:{Object.keys(profile.contacts).map(key => {
             return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]} />
         })}</div>
