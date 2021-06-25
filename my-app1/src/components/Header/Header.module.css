@@ -1,26 +1,46 @@
+
+
 .header {
     grid-area: h;
     background-color: rgb(125, 153, 160);
+    grid-template-columns: 0.5fr 6fr 2fr;
     display: grid;
-    grid-auto-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+      "i l k"
+      "i l w"
+    
 
 
 
   }
-  .header img {
+  .logoImage {
+    grid-area: i;
     width: 100px;
-    margin-left:5%;
-    border-radius: 10px;
-    padding: 5px;
+    padding: 3%;
+
+ 
+    
+   
   }
   .logo {
-    padding: 10px;
+    grid-area: l;
+    text-align: center;
+    padding-top: 3%;
+    
 
   }
   .loginBlock {
+    grid-area: k;
+    text-align: right;
+    padding: 1%;
 
   }
   .loginBlock a {
-      color: #f0ebeb;
+      color: #dbb7b7;
       text-decoration: none;
+  }
+  .weatherContainer {
+    grid-area: w;
+    
+
   }

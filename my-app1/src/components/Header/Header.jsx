@@ -7,7 +7,7 @@ const Header = (props) => {
 
     return (
         <header className={s.header}>
-            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQN1aHcEjTCfF7jhxIcJB1jyL_4BYEvoZRdQ&usqp=CAU' />
+            <img className={s.logoImage} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQN1aHcEjTCfF7jhxIcJB1jyL_4BYEvoZRdQ&usqp=CAU' />
             <div className={s.logo}>
                 <h1>Vpizde</h1>
             </div>
@@ -16,8 +16,9 @@ const Header = (props) => {
                     ? <div> {props.login} - <button onClick={props.logout}>Log out</button></div>
                     : <NavLink to={'/Login'}>Login</NavLink>}
             </div>
-            <WeatherContainer />
-
+            <div className={s.weatherContainer}>
+                <WeatherContainer />
+            </div>
         </header>
     );
 }

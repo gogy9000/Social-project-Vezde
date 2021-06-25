@@ -17,8 +17,8 @@ let initialsState = {
 
 
     profile: '',
-    status: '',
-    weather: undefined
+    status: 'ok',
+    weather: null
 }
 
 
@@ -77,9 +77,10 @@ export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos 
 export const setWeatherData = (weather) => ({ type: SET_WEATHER, weather })
 
 export const getWeatherData = (city) => async (dispatch) => {
+
     let response = await weatherAPI(city)
     if (response.statusText === "OK") {
-        dispatch(setWeatherData(response.data))
+        await dispatch(setWeatherData(response.data))
     }
     else {
         return Promise.reject(response.statusText[0])

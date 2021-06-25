@@ -6,7 +6,7 @@ import userPhoto from '../../assets/images/User.png'
 
 import ProfileDataForm from '../Profile/ProfileDataForm'
 
-const Description = ({ weather, status, updateStatus, profile, savePhoto, isOwner, saveProfile }) => {
+const Description = ({ status, updateStatus, profile, savePhoto, isOwner, saveProfile }) => {
 
     const [editMode, setEditMode] = useState(false)
 

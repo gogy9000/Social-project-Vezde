@@ -1,6 +1,6 @@
 .app-wrapper {
   display: grid;
-  width: 1500px;
+  width: 1000px;
   margin-left: 10%;
   grid-template-areas: 
   "h h"
@@ -8,8 +8,18 @@
   grid-template-rows: 0.1fr 1fr ;
   grid-template-columns:  0.15fr 1fr;
   grid-gap: 3px;
+  font-family:monospace;
+  font-size: 13px;
 
   
+}
+.header{
+  grid-area: h;
+  height: 100px;
+}
+.navbar{
+  grid-area: n;
+  width: 100px;
 }
 
 .app-wrapper-content {

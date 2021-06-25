@@ -18,7 +18,13 @@ import { compose } from 'redux';
 import Preloader from './components/Preloader/Preloader';
 import { withSuspense } from './HOC/withSuspense';
 import Prompt from './components/Posts/prompt/prompt';
-import GaleryPhoto from './components/GaleryPhoto/GaleryPhoto';
+import PhotoGalery from './components/GaleryPhoto/GaleryContainer';
+import FrendsContainer from './components/Navbar/Frends/FrendsContainer';
+
+
+
+
+
 
 const Dialogs = React.lazy(() => import('./components/Dialogs/Dialogs'))
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'))
@@ -42,8 +48,8 @@ class App extends Component {
     return (
 
       <div className='app-wrapper' >
-        <HeaderContainer />
-        <Navbar />
+        <HeaderContainer className='header' />
+        <Navbar className='navbar' />
 
 
         <div className='app-wrapper-content'>
@@ -52,7 +58,7 @@ class App extends Component {
 
 
           <Route exact path='/profile/:userId?' render={() => <ProfileContainer />} />
-          <Route exact path='/' render={() => <Prompt />} />
+          <Route exact path='/' render={() => <ProfileContainer />} />
 
 
 
@@ -65,7 +71,8 @@ class App extends Component {
           <Route exact path='/Post_item/' render={() => <Panorama />} />
           <Route exact path='/description/' render={() => <Profile1 />} />
           <Route exact path='/Login' render={() => <Login />} />
-          <Route exact path='/Galery' render={() => <GaleryPhoto />} />
+          <Route exact path='/Galery' render={() => <PhotoGalery />} />
+          <Route exact path='/Frends' render={() => <FrendsContainer />} />
 
         </div>
       </div>

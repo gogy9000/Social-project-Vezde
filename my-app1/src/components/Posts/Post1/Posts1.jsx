@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Posts1.module.css';
-
+import Preloader from '../../Preloader/Preloader';
 
 const Item = (props) => {
 
@@ -21,7 +21,7 @@ let Post1 = React.memo(props => {
 
 
     if (!props.profile) {
-        return <div>ответ не пришел</div>
+        return <Preloader />
     }
 
 
@@ -44,5 +44,5 @@ let Post1 = React.memo(props => {
         </div>
     );
 })
-console.log('посты отрендерились')
+
 export default Post1;

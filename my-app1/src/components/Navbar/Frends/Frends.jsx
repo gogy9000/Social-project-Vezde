@@ -1,15 +1,60 @@
-import React from 'react';
-import s from './Frends.module.css';
+import React from 'react'
+import Paginator from '../../common/Paginator/Paginator';
 
-const Frends = () => {
-    return  (
-      <div className= {s.Frends}>
-        <div> Frends </div>
-        <img src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpgJFe5MFRhTAv-N5rKU-w8m1pDq-RHYrmoA&usqp=CAU' /> 
-        <img src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpgJFe5MFRhTAv-N5rKU-w8m1pDq-RHYrmoA&usqp=CAU' />
-        <img src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpgJFe5MFRhTAv-N5rKU-w8m1pDq-RHYrmoA&usqp=CAU' />
-      </div>
+import userPhoto from '../../../assets/images/User.png'
+import { NavLink } from 'react-router-dom'
+import styles from './Frends.module.css'
+
+
+let User = ({ user, followingInProgress, unfollow, follow }) => {
+    return (
+        <div>
+            <div>
+                <NavLink to={'/profile/' + user.id} >
+                    <img src={user.photos.small != null ? user.photos.small : userPhoto}
+                        className={styles.userPhoto} />
+                </NavLink>
+            </div>
+            <div>
+                {user.followed
+                    ? <button disabled={followingInProgress.some(id => id === user.id)}
+                        onClick={() => { unfollow(user.id) }}>
+                        Unfollow</button>
+
+                    : <button disabled={followingInProgress.some(id => id === user.id)}
+                        onClick={() => { follow(user.id) }} >
+                        follow</button>}
+
+            </div>
+
+            <div>{user.name}</div>
+            <div>{user.status}</div>
+        </div>
     )
-};
+}
 
-export default Frends;
+
+
+
+
+let Frends = ({ currentPage, totalUsersCount, pageSize, onPageChanged, users, ...props }) => {
+    return <div>
+        <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
+            totalItemsCount={totalUsersCount} pageSize={pageSize} />
+        <div>
+            {users.map(u => <User user={u}
+                followingInProgress={props.followingInProgress}
+                key={u.id}
+                unfollow={props.unfollow}
+                follow={props.follow} />
+            )}
+        </div>
+        <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
+            totalItemsCount={totalUsersCount} pageSize={pageSize} />
+    </div>
+
+
+
+}
+
+export default Frends

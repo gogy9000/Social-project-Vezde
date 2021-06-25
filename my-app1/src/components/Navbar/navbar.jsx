@@ -2,7 +2,7 @@ import React from 'react';
 import s from './navbar.module.css';
 
 import { NavLink } from 'react-router-dom';
-import Frends from './Frends/Frends';
+import FrendsNavbar from './Frends/FrendsNavbar';
 
 const Navbar = () => {
   return (
@@ -16,7 +16,7 @@ const Navbar = () => {
       <NavLink to="/Music" activeClassName={s.activeLink}> Музыка </NavLink> <br />
       <NavLink to="/Settings" activeClassName={s.activeLink}> Настройки  </NavLink><br />
       <div className={s.Frends}>
-        <NavLink to="/Frends" activeClassName={s.activeLink}> <Frends />  </NavLink>
+        <NavLink to="/Frends" activeClassName={s.activeLink}> <FrendsNavbar />  </NavLink>
       </div>
     </div>
   );

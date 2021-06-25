@@ -1,0 +1,28 @@
+.weather {
+    
+  
+    display: grid;
+    grid-template-areas: 
+    "I D";
+    background-color: rgb(114, 135, 141);
+    
+    
+}
+.weatherDescriptions {
+    grid-area: D;
+   padding: 10px;
+   
+   
+    
+}
+.weatherImgDescriptions{
+    text-align: center;
+    
+    padding: 3px;
+}
+.weatherImg {
+    grid-area: I;
+    
+    
+    
+}

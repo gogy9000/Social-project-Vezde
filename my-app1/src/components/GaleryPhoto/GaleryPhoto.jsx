@@ -1,28 +1,35 @@
-import react, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import s from './GaleryPhoto.module.css'
+
+const Photo = (props) => {
+    debugger
+    return <span>
+        {props.photo === null ? null : <img className={s.photo} src={URL.createObjectURL(props.photo)} />}
+    </span>
+}
 
 
 
+const GaleryPhoto = React.memo((props) => {
 
-const GaleryPhoto = (props) => {
 
-    const [file, setFile] = useState(null);
-
-    useEffect(() => {
-        setFile()
-    }, [props])
 
     const fileHandler = (e) => {
-        setFile(e.target.files[0])
+        props.addPhoto(e.currentTarget.files[0])
+
     }
 
+    let elementsPhoto = [...props.photosPage.photosData].reverse().map(ph => < Photo photo={ph.photo} id={ph.id} key={ph.id} />)
 
 
     return (
         <div>
+            <input className={s.input} type={'file'} onChange={fileHandler} />
 
-            <img src={file ? URL.createObjectURL(file) : null} alt={file ? file.name : null} />
-            <input type={'file'} onChange={fileHandler} />
+
+            <div >{elementsPhoto}</div>
         </div>
     );
-}
+})
 export default GaleryPhoto
+
