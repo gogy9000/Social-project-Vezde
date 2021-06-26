@@ -1,9 +1,11 @@
 import React from 'react'
-import Paginator from '../../common/Paginator/Paginator';
 
-import userPhoto from '../../../assets/images/User.png'
+
+import userPhoto from '../../assets/images/User.png'
 import { NavLink } from 'react-router-dom'
-import styles from './Frends.module.css'
+import styles from './Search.module.css'
+import { useState } from 'react'
+import Paginator from '../common/Paginator/Paginator'
 
 
 let User = ({ user, followingInProgress, unfollow, follow }) => {
@@ -29,6 +31,7 @@ let User = ({ user, followingInProgress, unfollow, follow }) => {
 
             <div>{user.name}</div>
             <div>{user.status}</div>
+            <div>{user.id}</div>
         </div>
     )
 }
@@ -37,16 +40,28 @@ let User = ({ user, followingInProgress, unfollow, follow }) => {
 
 
 
-let Frends = ({ currentPage, totalUsersCount, pageSize, onPageChanged, users, ...props }) => {
+let Search = ({ currentPage, totalUsersCount, pageSize, onPageChanged, users, ...props }) => {
+
+
+    let [nick, setNick] = useState('')
+
+
+    let onSearch = (e) => {
+        e.preventDefault()
+        setNick(e.currentTarget.value)
+
+    }
 
 
 
     return <div>
-        {/* <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
-            totalItemsCount={totalUsersCount} pageSize={pageSize} /> */}
+
+        <input placeholder={"введите ник"} onChange={onSearch} />
+        <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
+            totalItemsCount={totalUsersCount} pageSize={pageSize} />
         <div>
 
-            {users.filter(item => (item.followed === true)).map(u => <User user={u}
+            {users.filter(item => (item.name.includes(nick))).map(u => <User user={u}
                 followingInProgress={props.followingInProgress}
                 key={u.id}
                 unfollow={props.unfollow}
@@ -61,4 +76,4 @@ let Frends = ({ currentPage, totalUsersCount, pageSize, onPageChanged, users, ..
 
 }
 
-export default Frends
+export default Search

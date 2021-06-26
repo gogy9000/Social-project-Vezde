@@ -15,6 +15,7 @@ const Navbar = () => {
       <NavLink to="/Galery" activeClassName={s.activeLink}>галерея </NavLink> <br />
       <NavLink to="/Music" activeClassName={s.activeLink}> Музыка </NavLink> <br />
       <NavLink to="/Settings" activeClassName={s.activeLink}> Настройки  </NavLink><br />
+      <NavLink to="/Search" activeClassName={s.activeLink}> Поиск  </NavLink><br />
       <div className={s.Frends}>
         <NavLink to="/Frends" activeClassName={s.activeLink}> <FrendsNavbar />  </NavLink>
       </div>

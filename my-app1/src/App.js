@@ -20,6 +20,7 @@ import { withSuspense } from './HOC/withSuspense';
 import Prompt from './components/Posts/prompt/prompt';
 import PhotoGalery from './components/GaleryPhoto/GaleryContainer';
 import FrendsContainer from './components/Navbar/Frends/FrendsContainer';
+import SearchContainer from './components/search/SearchContainer';
 
 
 
@@ -73,6 +74,8 @@ class App extends Component {
           <Route exact path='/Login' render={() => <Login />} />
           <Route exact path='/Galery' render={() => <PhotoGalery />} />
           <Route exact path='/Frends' render={() => <FrendsContainer />} />
+          <Route exact path='/Search' render={() => <SearchContainer />} />
+
 
         </div>
       </div>
