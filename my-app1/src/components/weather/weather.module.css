@@ -3,26 +3,40 @@
   
     display: grid;
     grid-template-areas: 
-    "I D";
-    background-color: rgb(114, 135, 141);
+    "i d";
     
-    
+    max-height: 100px;
+   
+  
+   text-align: center;
+    font-size: 12px;
 }
 .weatherDescriptions {
-    grid-area: D;
-   padding: 10px;
+    grid-area: d;
+    min-width: 200px;
+    max-height: 100px;
+    font-style: normal;
+   text-align: left;
    
    
     
 }
 .weatherImgDescriptions{
+   
+    grid-area: i;
+    
+    
+    max-height: 100px;
     text-align: center;
     
-    padding: 3px;
 }
 .weatherImg {
     grid-area: I;
+    min-width: 100px;
     
     
-    
+}
+
+.cityName{
+    font-size: 12px;
 }

@@ -6,12 +6,13 @@ const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS'
 
 let initialsState = {
 
-    userId: null,
-    email: null,
-    login: null,
-    isAuth: false,
-    captchaUrl: null //if null, then captcha is not required
-
+    loginData: [
+        { userId: null },
+        { email: null },
+        { login: null },
+        { isAuth: false },
+        { captchaUrl: null } //if null, then captcha is not required
+    ]
 
 }
 
@@ -47,7 +48,8 @@ export const login = (email, password, rememberMe, captcha) => async (dispatch) 
     let response = await authAPI.login(email, password, rememberMe, captcha)
 
     if (response.data.resultCode === 0) {
-        dispatch(setAuthUserData())
+        let { id, email, login, } = response.data.data
+        dispatch(setAuthUserData(id, email, login, true))
     } else {
         if (response.data.resultCode === 10) {
             dispatch(getCaptchaUrl())

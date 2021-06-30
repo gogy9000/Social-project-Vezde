@@ -3,11 +3,11 @@
 .header {
     grid-area: h;
     background-color: rgb(125, 153, 160);
-    grid-template-columns: 0.5fr 6fr 2fr;
+    grid-template-columns: 0.7fr  0.9fr 0.3fr  ;
     display: grid;
     grid-template-areas: 
-      "i l k"
-      "i l w"
+      "w  l k"
+      
     
 
 
@@ -15,8 +15,8 @@
   }
   .logoImage {
     grid-area: i;
-    width: 100px;
-    padding: 3%;
+    width: 90px;
+    padding: 4px;
 
  
     
@@ -31,16 +31,19 @@
   }
   .loginBlock {
     grid-area: k;
-    text-align: right;
+   
     padding: 1%;
+    text-align: center;
 
   }
   .loginBlock a {
       color: #dbb7b7;
       text-decoration: none;
+     
   }
   .weatherContainer {
     grid-area: w;
+    
     
 
   }

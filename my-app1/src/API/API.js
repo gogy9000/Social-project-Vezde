@@ -42,7 +42,7 @@ export const profileAPI = {
     getStatus(userId) {
         return instance.get(`profile/status/` + userId)
     },
-    updateStatus(status) {
+    updateStatus(status = '123') {
         return instance.put(`profile/status/`, { status: status })
     },
     savePhoto(photoFile) {
@@ -66,7 +66,7 @@ export const authAPI = {
     me() {
         return instance.get(`auth/me`)
     },
-    login(email, password, rememberMe = false, captcha = null) {
+    login(email, password, rememberMe = true, captcha = null) {
         return instance.post(`auth/login`, { email, password, rememberMe, captcha })
     },
     logout(email, password, rememberMe = false) {

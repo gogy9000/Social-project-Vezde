@@ -9,7 +9,7 @@ import { useState } from 'react';
 const WeatherContainer = (props) => {
 
     let [editMode, setEditMode] = useState(true)
-    let [city, setCity] = useState(null)
+    let [city, setCity] = useState()
 
 
     const activateEditMode = () => {
@@ -27,7 +27,9 @@ const WeatherContainer = (props) => {
 
     }
     const dispatchCity = () => {
-        props.getWeatherData(city)
+        city
+            ? props.getWeatherData(city)
+            : props.getWeatherData('бердагулово')//затычка
         deactivateEditMode()
 
     }
