@@ -17,6 +17,7 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "save": "^2.4.0",
+    "typescript": "^4.1.3",
     "web-vitals": "^0.2.4",
     "ym-api": "^1.0.0"
   },
@@ -43,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/redux-form": "^8.3.1"
   }
 }

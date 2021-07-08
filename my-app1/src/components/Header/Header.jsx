@@ -17,9 +17,9 @@ const Header = (props) => {
                 <h1>Vpizde</h1>
             </div>
             <LoginBlock {...props} />
-            {/* <div className={s.weatherContainer}> */}
+
             <WeatherContainer />
-            {/* </div> */}
+
         </header>
     );
 }

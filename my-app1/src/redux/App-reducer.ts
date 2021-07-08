@@ -6,12 +6,13 @@ const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS'
 
 let initialsState = {
 
-    initialized: true,
+    initialized: true as boolean,
 
 
 }
+type initialsStateType = typeof initialsState
 
-const AppReducer = (state = initialsState, action) => {
+const AppReducer = (state = initialsState, action: any): initialsStateType => {
     switch (action.type) {
         case INITIALIZED_SUCCESS:
             return { ...state, initialized: true }
@@ -19,10 +20,12 @@ const AppReducer = (state = initialsState, action) => {
             return state
     }
 }
+type initializedSuccessActionCreatorType = {
+    type: typeof INITIALIZED_SUCCESS
+}
+export const initializedSuccess = (): initializedSuccessActionCreatorType => ({ type: INITIALIZED_SUCCESS })
 
-export const initializedSuccess = () => ({ type: INITIALIZED_SUCCESS })
-
-export const initializeApp = () => (dispatch) => {
+export const initializeApp = () => (dispatch: any) => {
     let promise = dispatch(getAuthUserData());
 
     Promise.all([promise])
@@ -30,7 +33,7 @@ export const initializeApp = () => (dispatch) => {
             dispatch(initializedSuccess())
 
         })
-        //.catch(console.log('че за?'))
+        // .catch(console.log('че за?'))
         .finally(() => dispatch(initializedSuccess))
 }
 

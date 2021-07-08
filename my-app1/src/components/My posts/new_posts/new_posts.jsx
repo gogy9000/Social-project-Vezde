@@ -8,8 +8,11 @@ import { Textarea } from "../../common/FormsControls/FormsControls";
 const New_posts = (props) => {
 
 
+
     let onAddPost = (values) => {
-        props.AddPost(values.newPostText);
+        props.setPost(values.newPostText)
+
+
     }
 
     return (
