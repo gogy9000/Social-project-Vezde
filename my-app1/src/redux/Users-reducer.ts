@@ -1,3 +1,4 @@
+import { UserType } from './../types/types';
 import { usersAPI } from "../API/API";
 import { updateObjectInArray } from "../utils/object-helpers";
 
@@ -9,36 +10,36 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 const TOGGLE_IS_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_IS_FOLLOWING_PROGRESS'
-type usersType = {
+// type usersType = {
 
-    items: [
-        {
-            name: string | null
-            id: number | null
-            photos: {
-                small: string | null,
-                large: string | null
-            },
-            status: string | null,
-            followed: boolean
-        }
+//     items: [
+//         {
+//             name: string | null
+//             id: number | null
+//             photos: {
+//                 small: string | null,
+//                 large: string | null
+//             },
+//             status: string | null,
+//             followed: boolean
+//         }
 
-    ],
-    totalCount: number
-    error: string | null
-}
+//     ],
+//     totalCount: number
+//     error: string | null
+// }
 
 
 
 let initialsState = {
 
-    users: [] as Array<usersType>,
+    users: [] as Array<UserType>,
     pageSize: 100 as number,
     totalUsersCount: 10 as number,
     currentPage: 1 as number,
     isFetching: true as boolean,
     followingInProgress: [] as Array<number>,
-    portionSize: null as number | null
+    portionSize: 10 as number
 
 
 }
@@ -98,9 +99,9 @@ type unfollowSuccessActionCreator = {
 export const unfollowSuccess = (userId: number): unfollowSuccessActionCreator => ({ type: UNFOLLOW, userId })
 type setUsersActionCreator = {
     type: typeof SET_USERS
-    users: usersType
+    users: UserType
 }
-export const setUsers = (users: usersType): setUsersActionCreator => ({ type: SET_USERS, users })
+export const setUsers = (users: UserType): setUsersActionCreator => ({ type: SET_USERS, users })
 type setCurrentPageActionCreator = {
     type: typeof SET_CURRENT_PAGE
     currentPage: number
