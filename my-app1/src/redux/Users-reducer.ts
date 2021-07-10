@@ -37,7 +37,8 @@ let initialsState = {
     totalUsersCount: 10 as number,
     currentPage: 1 as number,
     isFetching: true as boolean,
-    followingInProgress: [] as Array<number>
+    followingInProgress: [] as Array<number>,
+    portionSize: null as number | null
 
 
 }
@@ -123,7 +124,7 @@ type toggleFollowingProgressActionCreator = {
 export const toggleFollowingProgress = (isFetching: boolean, userId: number): toggleFollowingProgressActionCreator => ({ type: TOGGLE_IS_IS_FOLLOWING_PROGRESS, isFetching, userId })
 
 export const requestUsers = (page: number, pageSize: number) => {
-    async (dispatch: any) => {
+    return async (dispatch: any) => {
         dispatch(toggleIsFetching(true))
         dispatch(setCurrentPage(page))
 
@@ -137,7 +138,7 @@ export const requestUsers = (page: number, pageSize: number) => {
     }
 }
 export const follow = (userId: number) => {
-    async (dispatch: any) => {
+    return async (dispatch: any) => {
         dispatch(toggleFollowingProgress(true, userId))
         let response = await usersAPI.follow(userId)
 
@@ -149,7 +150,7 @@ export const follow = (userId: number) => {
     }
 }
 export const unfollow = (userId: number) => {
-    async (dispatch: any) => {
+    return async (dispatch: any) => {
         dispatch(toggleFollowingProgress(true, userId))
         let response = await usersAPI.unfollow(userId)
 

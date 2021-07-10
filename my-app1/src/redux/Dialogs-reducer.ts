@@ -46,7 +46,7 @@ type sendMessageActionCreatorType = {
     type: typeof SEND_MESSAGE
     newMessageBody: string
 }
-export const sendMessageCreator = (newMessageBody: string) => ({ type: SEND_MESSAGE, newMessageBody })
+export const sendMessageCreator = (newMessageBody: string): sendMessageActionCreatorType => ({ type: SEND_MESSAGE, newMessageBody })
 
 
 export default dialogsReducer;

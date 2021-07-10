@@ -8,7 +8,7 @@ import photosReducer from './photo-reducer'
 import thunkMiddleware from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form'
 
-let reducers = combineReducers({
+let rootReducer = combineReducers({
     Profile_Page: profileReducer,
     Messages_Page: dialogsReducer,
     Users_Page: usersReducer,
@@ -17,12 +17,18 @@ let reducers = combineReducers({
     photosPage: photosReducer,
     form: formReducer
 })
+
+type RootReducerType = typeof rootReducer // (globalstate: AppStateType) => AppStateType
+export type AppStateType = ReturnType<RootReducerType>
+
+// @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)
+// @ts-ignore
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleware)
 ));
 
 
-
+// @ts-ignore
 window._store_ = store
 
 export default store;
