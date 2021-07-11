@@ -1,3 +1,4 @@
+
 export type ProfileType = {
     userId: number
     lookingForAJob: boolean
@@ -25,10 +26,12 @@ export type UserType = {
     name: string
     status: string
     photos: PhotosType
+    followed: boolean
 }
 export type PostType = {
     id: number | null
     Post_item: string | null
     Like: number | null
+    photos: PhotosType
 
 }

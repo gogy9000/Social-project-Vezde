@@ -1,3 +1,4 @@
+
 import { stopSubmit } from "redux-form";
 import { profileAPI, usersAPI, weatherAPI } from "../API/API";
 import { PhotosType, PostType, ProfileType } from "../types/types";
@@ -15,7 +16,7 @@ const SET_WEATHER = 'SET_WEATHER'
 let initialsState = {
 
     Post_item_data: [
-        { id: null, Post_item: null, Like: null, },
+        { id: null, Post_item: null, Like: null, photos: null as PhotosType | null },
 
     ] as Array<PostType>,
 
@@ -37,7 +38,8 @@ const profileReducer = (state = initialsState, action: any): initialsStateType =
             let New_Post = {
                 id: +Math.random(),
                 Post_item: action.newPostText,
-                Like: +Math.random() * 100
+                Like: +Math.random() * 100,
+                photos: action.Post_item_data.photos.small
             }
             return {
                 ...state,

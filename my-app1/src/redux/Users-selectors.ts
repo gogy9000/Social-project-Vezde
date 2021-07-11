@@ -1,4 +1,4 @@
-import { UserType } from './../types/types';
+
 import { createSelector } from "reselect"
 import { AppStateType } from "./redux-store"
 

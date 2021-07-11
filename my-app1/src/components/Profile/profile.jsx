@@ -7,8 +7,7 @@ import {
     updateStatus,
     savePhoto,
     saveProfile,
-    setUserProfile,
-
+    setUserProfile
 } from "../../redux/profile-reducer";
 import s from './profile.module.css';
 import Description from '../description/description';
@@ -16,9 +15,8 @@ import { withRouter } from 'react-router-dom';
 import NewPosts from "../My posts/new_posts/new_posts";
 import MyPost from "../My posts/My post/My_post";
 import { compose } from "redux";
+import Post1 from '../Posts/Posts/Posts';
 
-import Post1 from '../Posts/Post1/Posts1';
-import axios from 'axios';
 
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setUserProfile } from '../../../redux/profile-reducer'
-import Post1 from './Posts1'
+import Post1 from './Posts'
 
 
 
@@ -24,7 +24,7 @@ class Post1Container extends React.Component {
 }
 let mapStateToProps = (state) => ({
     profile: state.Profile_Page.profile,
-    Profile_Page: state.Profile_Page,
+    Post_item_data: state.Profile_Page.Post_item_data,
     New_Post_Text: state.Profile_Page.New_Post_Text
 })
 
