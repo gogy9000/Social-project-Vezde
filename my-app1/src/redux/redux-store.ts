@@ -9,9 +9,9 @@ import thunkMiddleware from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form'
 
 let rootReducer = combineReducers({
-    Profile_Page: profileReducer,
-    Messages_Page: dialogsReducer,
-    Users_Page: usersReducer,
+    profilePage: profileReducer,
+    messagesPage: dialogsReducer,
+    usersPage: usersReducer,
     auth: authReducer,
     app: AppReducer,
     photosPage: photosReducer,

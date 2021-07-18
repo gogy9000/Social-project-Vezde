@@ -1,36 +1,35 @@
 import React, { FC } from 'react';
 import s from './Posts.module.css';
 import Preloader from '../../Preloader/Preloader';
-import { PhotosType, PostType, ProfileType } from '../../../types/types';
+import { PhotosType, PostType, ProfilePageType, ProfileType } from '../../../types/types';
 
 type PostsPropsType = {
-    photos: any
-    PostItem: string
-    profile: ProfileType
-    Post_item_data: Array<PostType>
-    Like: number | null
-    id: number
+    profilePage: ProfilePageType
+
+    // profile?: ProfileType
+    // postItemData?: Array<PostType>
+    // likesCount?: number | null
+    // id?: number
 
 }
 
 type ItemPropsType = {
-    photos: any
-    PostItem: string | null
-    //  profile: ProfileType
-    //  Post_item_data: Array<PostType>
-
-    Like: number | null
+    postItem: string | null
+    // photos: any
+    likesCount: number | null
     id: number | null
+
+
 
 }
 
-const Item: FC<ItemPropsType> = ({ PostItem, photos }) => {
+const Item: FC<ItemPropsType> = ({ postItem, }) => {
 
     return <>
 
         <div className={s.Post1}>
-            <img src={photos} />
-            <>item  <p>{PostItem} </p> </>
+            {/* <img src={photos} /> */}
+            <>item  <p>{postItem} </p> </>
 
 
 
@@ -39,10 +38,10 @@ const Item: FC<ItemPropsType> = ({ PostItem, photos }) => {
     </>
 }
 
-let Post1: FC<PostsPropsType> = React.memo(({ profile, Post_item_data }) => {
+let Posts: FC<PostsPropsType> = React.memo(({ profilePage }) => {
 
 
-    if (!profile) {
+    if (!profilePage.profile) {
         return <Preloader />
     }
 
@@ -52,8 +51,9 @@ let Post1: FC<PostsPropsType> = React.memo(({ profile, Post_item_data }) => {
 
 
     let post_elements =
-        [...Post_item_data].reverse().map(p => <Item PostItem={p.Post_item} Like={p.Like} id={p.id} key={p.id}
-            photos={profile.photos.small} />)
+        [...profilePage.postItemData].reverse().map(p => <Item postItem={p.postItem} likesCount={p.likesCount} id={p.id} key={p.id}
+        // photos={profilePage.profile.photos.small}
+        />)
 
 
 
@@ -67,4 +67,4 @@ let Post1: FC<PostsPropsType> = React.memo(({ profile, Post_item_data }) => {
     );
 })
 
-export default Post1;
+export default Posts;

@@ -1,8 +1,8 @@
 import React from 'react';
-import {Redirect} from "react-router-dom";
-import {Field, reduxForm} from "redux-form";
-import {Textarea} from "../../common/FormsControls/FormsControls";
-import {maxLengthCreator, requiredField} from "../../../utils/validators/validators";
+import { Redirect } from "react-router-dom";
+import { Field, reduxForm } from "redux-form";
+import { Textarea } from "../../common/FormsControls/FormsControls";
+import { maxLengthCreator, requiredField } from "../../../utils/validators/validators";
 
 
 const Messages = (props) => {
@@ -16,37 +16,37 @@ const Messages = (props) => {
 
 
 const Message = (props) => {
-    let message_element = props.Messages_Page.Message_data.map(m => <Messages message={m.message} key={m.id}/>)
-    if (props.isAuth === false) return <Redirect to={'/Login'}/>
+    let messageElement = props.messagesPage.messageData.map(m => <Messages message={m.message} key={m.id} />)
+    if (props.isAuth === false) return <Redirect to={'/Login'} />
 
-   let addMessage = (values) => {
+    let addMessage = (values) => {
         props.sendMessage(values.newMessageBody)
     }
     return (
         <>
-            <div>{message_element}</div>
+            <div>{messageElement}</div>
 
-            <AddMessageFormRedux onSubmit={addMessage}/>
+            <AddMessageFormRedux onSubmit={addMessage} />
 
         </>
     )
 }
 const maxLength50 = maxLengthCreator(50)
 
- const AddMessageForms = (props) => {
+const AddMessageForms = (props) => {
 
 
     return (
 
         <form onSubmit={props.handleSubmit}>
-            <div><Field component={Textarea} validate={[requiredField,maxLength50]} name='newMessageBody' placeholder='Enter you message'/></div>
+            <div><Field component={Textarea} validate={[requiredField, maxLength50]} name='newMessageBody' placeholder='Enter you message' /></div>
             <div>
-                <button>нахуярить сообщение</button>
+                <button>Add Message</button>
             </div>
         </form>
 
     )
 }
-const AddMessageFormRedux = reduxForm({form: 'dialogAddMessageForm'})(AddMessageForms)
+const AddMessageFormRedux = reduxForm({ form: 'dialogAddMessageForm' })(AddMessageForms)
 
 export default Message;

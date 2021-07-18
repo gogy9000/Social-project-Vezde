@@ -1,18 +1,14 @@
 import { authAPI, securityAPI } from "../API/API";
 import { stopSubmit } from "redux-form";
+import { AuthType } from "../types/types";
 
 const SET_USER_DATA = 'SET_USER_DATA'
 const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS'
 
-let initialsState = {
+let initialsState: AuthType = {
 
-    loginData: [
-        { userId: null as number | null },
-        { email: null as string | null },
-        { login: null as string | null },
-        { isAuth: false as boolean },
-        { captchaUrl: null as any | null } //if null, then captcha is not required
-    ]
+
+    userId: null, email: null, login: null, isAuth: false, captchaUrl: null
 
 }
 

@@ -1,7 +1,8 @@
 
+
 import { stopSubmit } from "redux-form";
 import { profileAPI, usersAPI, weatherAPI } from "../API/API";
-import { PhotosType, PostType, ProfileType } from "../types/types";
+import { PhotosType, PostType, ProfileType, ProfilePageType } from "../types/types";
 
 const ADD_POST = 'ADD-POST'
 const DELETE_POST = 'DELETE_POST';
@@ -13,20 +14,21 @@ const SET_WEATHER = 'SET_WEATHER'
 
 
 
-let initialsState = {
+let initialsState: ProfilePageType = {
 
-    Post_item_data: [
-        { id: null, Post_item: null, Like: null, photos: null as PhotosType | null },
+    postItemData: [
+        { id: null, postItem: null, likesCount: null, photos: null as any },
 
-    ] as Array<PostType>,
+    ],
 
 
-    profile: null as ProfileType | null,
-    status: '',
-    weather: null as any,
-    newPostText: '',
-    // New_Post: null as PostType | null
+    profile: null,
+    status: null,
+    weather: null,
+    newPostText: null,
+
 }
+
 export type initialsStateType = typeof initialsState
 
 
@@ -37,13 +39,13 @@ const profileReducer = (state = initialsState, action: any): initialsStateType =
         case ADD_POST:
             let New_Post = {
                 id: +Math.random(),
-                Post_item: action.newPostText,
-                Like: +Math.random() * 100,
-                photos: action.Post_item_data.photos.small
+                postItem: action.newPostText,
+                likesCount: +Math.random() * 100,
+                photos: action.postItemData.photos.small
             }
             return {
                 ...state,
-                Post_item_data: [...state.Post_item_data, New_Post],
+                postItemData: [...state.postItemData, New_Post],
                 newPostText: ''
 
             }
@@ -67,7 +69,7 @@ const profileReducer = (state = initialsState, action: any): initialsStateType =
             }
         }
         case DELETE_POST:
-            return { ...state, Post_item_data: state.Post_item_data.filter(p => p.id !== action.id) }
+            return { ...state, postItemData: state.postItemData.filter(p => p.id !== action.id) }
 
         case SAVE_PHOTO_SUCCESS:
             return { ...state, profile: { ...state.profile, photos: action.photos } as ProfileType }

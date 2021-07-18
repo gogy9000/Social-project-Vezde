@@ -2,14 +2,12 @@
 import './App.css';
 import React, { Component } from 'react';
 import Navbar from './components/Navbar/navbar';
-import ProfileContainer from './components/Profile/profile';
+import ProfileContainer from './components/Profile/profileContainer';
 import { Route, withRouter } from "react-router-dom";
 import Music from './components/Navbar/Music/Music';
 import Settings from './components/Navbar/Settings/Settings';
 import Panorama from './components/Profile/Panorama/Panorama';
 import Profile1 from './components/Navbar/Profile./Profile1';
-//import UsersContainer from './components/Users/UsersContainer';
-//import Post1Container from '../src/components/Posts/Post1/Posts1-container'
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/login/login";
 import { connect } from 'react-redux';

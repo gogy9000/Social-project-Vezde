@@ -1,4 +1,4 @@
-import profileReducer, {AddPost, deletePost} from "./profile-reducer";
+import profileReducer, { AddPost, deletePost } from "./profile-reducer";
 import ReactDOM from "react-dom";
 import App from "../App";
 import React from "react";
@@ -21,7 +21,7 @@ it('length of posts should be incremented', () => {
     let newState = profileReducer(state, action);
 
     // 3. expectation
-    expect(newState.Post_item_data.length).toBe(5);
+    expect(newState.postItemData.length).toBe(5);
 
 });
 
@@ -33,7 +33,7 @@ it('message of new post should be correct', () => {
     let newState = profileReducer(state, action);
 
     // 3. expectation
-    expect(newState.Post_item_data[4].Post_item).toBe("it-kamasutra.com");
+    expect(newState.postItemData[4].Post_item).toBe("it-kamasutra.com");
 });
 
 it('after deleting length of messages should be decrement', () => {
@@ -44,7 +44,7 @@ it('after deleting length of messages should be decrement', () => {
     let newState = profileReducer(state, action);
 
     // 3. expectation
-    expect(newState.Post_item_data.length).toBe(3);
+    expect(newState.postItemData.length).toBe(3);
 });
 
 it(`after deleting length shouldn't be decrement if id is incorrect`, () => {
@@ -55,7 +55,7 @@ it(`after deleting length shouldn't be decrement if id is incorrect`, () => {
     let newState = profileReducer(state, action);
 
     // 3. expectation
-    expect(newState.Post_item_data.length).toBe(4);
+    expect(newState.postItemData.length).toBe(4);
 });
 
 

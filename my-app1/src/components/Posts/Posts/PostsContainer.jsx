@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setUserProfile } from '../../../redux/profile-reducer'
-import Post1 from './Posts'
+import Posts from './Posts'
 
 
 
@@ -15,7 +15,7 @@ class Post1Container extends React.Component {
 
         return <>
             {this.props.profile ? 'ответ пришел' : 'ответ еще не пришел'}
-            <Post1 {...this.props}
+            <Posts {...this.props}
                 Profile_Page={this.props.Profile_Page}
                 profile={this.props.profile} />
         </>

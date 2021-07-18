@@ -6,11 +6,11 @@ const SEND_MESSAGE = 'SEND_MESSAGE';
 let initialsState = {
 
 
-    Dialogs_data: [
+    dialogsData: [
         { id: null as number | null, name: null as string | null },
 
     ],
-    Message_data: [
+    messageData: [
         { id: null as number | null, message: null as string | null },
 
     ],
@@ -31,7 +31,7 @@ const dialogsReducer = (state = initialsState, action: any): initialsStateType =
             return {
                 ...state,
 
-                Message_data: [...state.Message_data, { id: Math.random(), message: body }]
+                messageData: [...state.messageData, { id: Math.random(), message: body }]
             }
 
 

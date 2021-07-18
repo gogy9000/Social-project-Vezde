@@ -55,7 +55,7 @@ const WeatherContainer = (props) => {
 }
 
 let mapStateToProps = (state) => ({
-    weather: state.Profile_Page.weather
+    weather: state.profilePage.weather
 })
 
 export default compose(
