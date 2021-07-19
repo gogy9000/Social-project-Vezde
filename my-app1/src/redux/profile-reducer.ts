@@ -2,7 +2,7 @@
 
 import { stopSubmit } from "redux-form";
 import { profileAPI, usersAPI, weatherAPI } from "../API/API";
-import { PhotosType, PostType, ProfileType, ProfilePageType } from "../types/types";
+import { PhotosType, ProfileType, ProfilePageType } from "../types/types";
 
 const ADD_POST = 'ADD-POST'
 const DELETE_POST = 'DELETE_POST';
@@ -37,15 +37,17 @@ const profileReducer = (state = initialsState, action: any): initialsStateType =
     switch (action.type) {
 
         case ADD_POST:
-            let New_Post = {
-                id: +Math.random(),
+            let NewPost = {
+                id: Math.random(),
                 postItem: action.newPostText,
-                likesCount: +Math.random() * 100,
-                photos: action.postItemData.photos.small
+                likesCount: Math.random() * 100,
+
+                photos: state.profile?.photos.small
             }
+            debugger
             return {
                 ...state,
-                postItemData: [...state.postItemData, New_Post],
+                postItemData: [...state.postItemData, NewPost],
                 newPostText: ''
 
             }
@@ -83,6 +85,7 @@ const profileReducer = (state = initialsState, action: any): initialsStateType =
 type AddPostActionCreatorActionType = {
     type: typeof ADD_POST
     newPostText: string
+
 }
 
 export const AddPost = (newPostText: string): AddPostActionCreatorActionType => ({ type: ADD_POST, newPostText })

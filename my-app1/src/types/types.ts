@@ -32,7 +32,7 @@ export type PostType = {
     id: number | null
     postItem: string | null
     likesCount: number | null
-    photos: PhotosType
+    photos: any | null
 
 }
 export type ProfilePageType = {

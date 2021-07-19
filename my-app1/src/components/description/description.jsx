@@ -9,6 +9,7 @@ import ProfileDataForm from '../Profile/ProfileDataForm'
 const Description = ({ status, updateStatus, profile, savePhoto, isOwner, saveProfile }) => {
 
     const [editMode, setEditMode] = useState(false)
+    const [editPhoto, setEditPhoto] = useState(false)
 
     if (!profile) {
         return <Preloader />
@@ -17,6 +18,7 @@ const Description = ({ status, updateStatus, profile, savePhoto, isOwner, savePr
     const onMainPhotoSelected = (e) => {
         if (e.target.files.length) {
             savePhoto(e.target.files[0])
+            setEditPhoto(false)
         }
     }
 
@@ -32,9 +34,9 @@ const Description = ({ status, updateStatus, profile, savePhoto, isOwner, savePr
     return (
         < div className={s.Description}>
             <p>
-                <img src={profile.photos.large || userPhoto} />
+                {editPhoto ? isOwner && <input type={'file'} onChange={onMainPhotoSelected} /> : <img src={profile.photos.large || userPhoto} onClick={() => { setEditPhoto(true) }} />}
             </p>
-            {isOwner && <input type={'file'} onChange={onMainPhotoSelected} />}
+
 
             <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
 
@@ -48,21 +50,21 @@ const Description = ({ status, updateStatus, profile, savePhoto, isOwner, savePr
 
 }
 const ProfileData = ({ profile, isOwner, goToEditMode }) => {
-    return <div>
+    return isOwner && <div onClick={goToEditMode}>
 
         <div>Ник: {profile.fullName}</div>
         <div>Статус: {profile.aboutMe}</div>
         <div>Место службы: {profile.lookingForAJobDescription}</div>
         <div>aboutMe :{profile.aboutMe ? 'Yes' : 'No'}</div>
-        {isOwner && <div><button onClick={goToEditMode}>edit</button></div>}
+
         <div><b>Contact </b>:{Object.keys(profile.contacts).map(key => {
             return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]} />
         })}</div>
     </div>
 
-
-
 }
+
+
 
 
 

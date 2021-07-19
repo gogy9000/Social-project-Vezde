@@ -97,18 +97,10 @@ class ProfileContainer extends React.Component<PropsType> {
                     isOwner={!this.props.match.params.userId}
                     savePhoto={this.props.savePhoto}
                     saveProfile={this.props.saveProfile}
-
                 />
 
                 <NewPosts {...this.props} />
-
-                < Posts profilePage={this.props.profilePage}
-
-
-                />
-
-
-
+                < Posts profilePage={this.props.profilePage} />
 
             </div>
         </>
@@ -120,30 +112,24 @@ class ProfileContainer extends React.Component<PropsType> {
 
 let mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
     auth: state.auth,
-    profilePage: state.profilePage,
-
-
-
-
-
-
-
-
-
+    profilePage: state.profilePage
 
 })
 
 export default compose(
-    connect<MapStateToPropsType, MapDispatchToProps, OwnProps, AppStateType>(mapStateToProps,
-        {
-            getUserProfile,
-            getStatus,
-            updateStatus,
-            setPost,
-            savePhoto,
-            saveProfile,
-            setUserProfile,
-        }),
+    connect<MapStateToPropsType,
+        MapDispatchToProps,
+        OwnProps,
+        AppStateType>(mapStateToProps,
+            {
+                getUserProfile,
+                getStatus,
+                updateStatus,
+                setPost,
+                savePhoto,
+                saveProfile,
+                setUserProfile,
+            }),
     withRouter,
 )(ProfileContainer)
 
