@@ -4,18 +4,19 @@ export type ProfileType = {
     lookingForAJob: boolean
     lookingForAJobDescription: string | null
     fullName: string | null
-    contacts: ContactsType
+    aboutMe: string | null
+    contacts: any
     photos: PhotosType
 }
 export type ContactsType = {
-    github: string | null
-    vk: string | null
-    facebook: string | null
-    instagram: string | null
-    twitter: string | null
-    website: string | null
-    youtube: string | null
-    mainLink: string | null
+    github: string
+    vk: string
+    facebook: string
+    instagram: string
+    twitter: string
+    website: string
+    youtube: string
+    mainLink: string
 }
 export type PhotosType = {
     small: any
@@ -38,8 +39,8 @@ export type PostType = {
 export type ProfilePageType = {
 
     postItemData: Array<PostType>,
-    profile: ProfileType | null,
-    status: string | null,
+    profile: ProfileType,
+    status: string,
     weather: any,
     newPostText: string | null,
 }
