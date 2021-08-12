@@ -1,10 +1,17 @@
-import React from 'react';
+import { FC } from 'react';
 import s from './Header.module.css';
 import { NavLink } from "react-router-dom";
 
 import { useState } from 'react';
 
-const LoginBlock = (props) => {
+type PropsTypes = {
+    isAuth: boolean
+    logout: () => void
+    Login: string
+
+}
+
+const LoginBlock: FC<PropsTypes> = (props) => {
 
     let [editMode, setEditMode] = useState(false)
 
@@ -22,7 +29,7 @@ const LoginBlock = (props) => {
             {props.isAuth ?
                 editMode ?
                     <button onMouseOut={deactivateEditMode} onClick={props.logout}  >Log out</button>
-                    : <div onMouseMove={activateEditMode}  > {props.login} </div>
+                    : <div onMouseMove={activateEditMode}  > {props.Login} </div>
                 : <NavLink to={'/Login'}>Login</NavLink>}
         </div>
 

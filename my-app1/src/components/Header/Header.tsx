@@ -2,14 +2,20 @@ import React from 'react';
 import s from './Header.module.css';
 import { NavLink } from "react-router-dom";
 import WeatherContainer from '../weather/weatherContainer';
-import { useState } from 'react';
+import { useState, FC } from 'react';
 import LoginBlock from './LoginBlock';
 
-const Header = (props) => {
+type PropsTypes = {
+    isAuth: boolean
+    logout: () => void
+    Login: string
+}
+
+const Header: FC<PropsTypes> = (props) => {
 
 
 
-    console.log('render')
+
 
     return (
         <header className={s.header}>

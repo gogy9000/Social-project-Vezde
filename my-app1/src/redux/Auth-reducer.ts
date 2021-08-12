@@ -5,10 +5,10 @@ import { AuthType } from "../types/types";
 const SET_USER_DATA = 'SET_USER_DATA'
 const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS'
 
-let initialsState: AuthType = {
+let initialsState = {
 
 
-    userId: null, email: null, login: null, isAuth: false, captchaUrl: null
+    userId: null as (number | null), email: null as string | null, login: null as string | null, isAuth: false, captchaUrl: null as string | null
 
 }
 

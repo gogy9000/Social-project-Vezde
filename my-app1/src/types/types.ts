@@ -1,10 +1,10 @@
 
 export type ProfileType = {
-    userId: number | null
+    userId: number
     lookingForAJob: boolean
-    lookingForAJobDescription: string | null
-    fullName: string | null
-    aboutMe: string | null
+    lookingForAJobDescription: string
+    fullName: string
+    aboutMe: string
     contacts: any
     photos: PhotosType
 }
@@ -19,30 +19,30 @@ export type ContactsType = {
     mainLink: string
 }
 export type PhotosType = {
-    small: any
-    large: any
+    small: string | null
+    large: string | null
 }
 export type UserType = {
     id: number
     name: string
-    status: string | null
+    status: string
     photos: PhotosType
     followed: boolean
 }
 export type PostType = {
-    id: number | null
-    postItem: string | null
-    likesCount: number | null
-    photos: any | null
+    id: number
+    postItem: string
+    likesCount: number
+    photos: any
 
 }
 export type ProfilePageType = {
 
     postItemData: Array<PostType>,
-    profile: ProfileType,
+    profile: ProfileType | null,
     status: string,
     weather: any,
-    newPostText: string | null,
+    newPostText: string,
 }
 
 
@@ -54,8 +54,8 @@ export type AuthType = {
     userId: number | null,
     email: string | null,
     login: string | null,
-    isAuth: boolean,
-    captchaUrl: File | null
+    isAuth: boolean | null,
+    captchaUrl: string | null
 
 
 }

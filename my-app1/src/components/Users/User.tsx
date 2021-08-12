@@ -35,6 +35,7 @@ let User: FC<PropsType> = ({ user, followingInProgress, unfollow, follow }) => {
 
             <div>{user.name}</div>
             <div>{user.status}</div>
+            <div>id:{user.id}</div>
         </div>
     )
 }

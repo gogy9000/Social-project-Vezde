@@ -3,6 +3,7 @@ import { usersAPI } from "../API/API";
 import { updateObjectInArray } from "../utils/object-helpers";
 
 
+
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
@@ -46,7 +47,7 @@ let initialsState = {
 type initialsStateType = typeof initialsState
 
 
-const usersReducer = (state = initialsState, action: any): initialsStateType => {
+const usersReducer = (state = initialsState, action: ActionTypes): initialsStateType => {
 
     switch (action.type) {
         case FOLLOW:
@@ -61,6 +62,7 @@ const usersReducer = (state = initialsState, action: any): initialsStateType => 
                 users: updateObjectInArray(state.users, action.userId, "id", { followed: true })
             }
         case SET_USERS: {
+            // @ts-ignore
             return { ...state, users: action.users }
         }
         case SET_CURRENT_PAGE: {
@@ -87,6 +89,8 @@ const usersReducer = (state = initialsState, action: any): initialsStateType => 
     }
 
 }
+type ActionTypes = followSuccessActionCreator | unfollowSuccessActionCreator | setUsersActionCreator | setCurrentPageActionCreator | setTotalUsersCountActionCreator | toggleIsFetchingActionCreator | toggleFollowingProgressActionCreator
+
 type followSuccessActionCreator = {
     type: typeof FOLLOW
     userId: number
@@ -117,6 +121,8 @@ type toggleIsFetchingActionCreator = {
     isFetching: boolean
 }
 export const toggleIsFetching = (isFetching: boolean): toggleIsFetchingActionCreator => ({ type: TOGGLE_IS_FETCHING, isFetching })
+
+
 type toggleFollowingProgressActionCreator = {
     type: typeof TOGGLE_IS_IS_FOLLOWING_PROGRESS
     isFetching: boolean

@@ -2,7 +2,7 @@
 
 import { stopSubmit } from "redux-form";
 import { profileAPI, usersAPI, weatherAPI } from "../API/API";
-import { PhotosType, ProfileType, ProfilePageType } from "../types/types";
+import { PhotosType, ProfileType, ProfilePageType, PostType } from "../types/types";
 
 const ADD_POST = 'ADD-POST'
 const DELETE_POST = 'DELETE_POST';
@@ -13,19 +13,20 @@ const SET_WEATHER = 'SET_WEATHER'
 
 
 
-
-let initialsState: ProfilePageType = {
+let initialsState = {
 
     postItemData: [
-        { id: null, postItem: null, likesCount: null, photos: null as any },
+        { id: 1, postItem: 'sdf', likesCount: 34, photos: null as any },
 
-    ],
+    ] as Array<PostType>,
 
 
-    profile: null,
-    status: null,
+    profile: null as ProfileType | null
+
+    ,
+    status: '',
     weather: null,
-    newPostText: null,
+    newPostText: '',
 
 }
 
