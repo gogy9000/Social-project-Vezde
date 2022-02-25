@@ -20,7 +20,7 @@ const Header: FC<PropsTypes> = (props) => {
     return (
         <header className={s.header}>
             <div className={s.logo}>
-                <h1>Vpizde</h1>
+                <h1>Vezde</h1>
             </div>
             <LoginBlock {...props} />
 
