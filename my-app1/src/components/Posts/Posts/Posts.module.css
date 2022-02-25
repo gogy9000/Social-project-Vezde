@@ -1,0 +1,26 @@
+.Post1 {
+    color:white;
+    text-decoration: none;
+    display: grid;
+    grid-template-areas:" img post";
+    grid-template-columns: 1fr 14fr;
+    background-color: rgb(143, 150, 151);
+    margin-top: 1%;
+    border-style: solid;
+
+
+    }
+
+.postItem {
+    grid-area: 'post';
+    text-align: left;
+    padding-top: 2%;
+    background-color:rgb(111, 141, 151)
+}
+.postImg {
+    grid-area: 'img';
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+   
+}

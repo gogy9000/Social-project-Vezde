@@ -1,0 +1,11 @@
+
+
+.userPhoto {
+    width: 100px;
+    height: 70px;
+    border-radius: 30px;
+    
+}
+.selectedPage {
+    font-weight: bold;
+}

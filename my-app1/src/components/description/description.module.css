@@ -1,8 +1,18 @@
 .Description {
+    display: grid;
     color: goldenrod;
     padding: 10px;
+
 }
+
+.Description {
+    grid-auto-columns: 1fr 1fr ;
+}
+
 .Description img {
     width: 120px;
     border-radius: 50%;
+}
+.s.contact {
+    padding: 10px;
 }

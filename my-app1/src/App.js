@@ -1,50 +1,94 @@
 
 import './App.css';
-import React from 'react';
-import Header from './components/Header/Header';
+import React, { Component } from 'react';
 import Navbar from './components/Navbar/navbar';
-import Profile from './components/Profile/profile';
-import {Route, BrowserRouter} from "react-router-dom";
+import ProfileContainer from './components/Profile/profileContainer';
+import { Route, withRouter } from "react-router-dom";
 import Music from './components/Navbar/Music/Music';
 import Settings from './components/Navbar/Settings/Settings';
-import Dialogs from './components/Dialogs/Dialogs';
 import Panorama from './components/Profile/Panorama/Panorama';
 import Profile1 from './components/Navbar/Profile./Profile1';
-import Frends from './components/Navbar/Frends/Frends';
+import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/login/login";
+import { connect } from 'react-redux';
+import { initializeApp } from './redux/App-reducer';
+import { compose } from 'redux';
+import Preloader from './components/Preloader/Preloader';
+import { withSuspense } from './HOC/withSuspense';
+import Prompt from './components/Posts/prompt/prompt';
+import PhotoGalery from './components/GaleryPhoto/GaleryContainer';
+import FrendsContainer from './components/Navbar/Frends/FrendsContainer';
+import SearchContainer from './components/search/SearchContainer';
 
- 
+
+
+
+
+
+const Dialogs = React.lazy(() => import('./components/Dialogs/Dialogs'))
+const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'))
 
 
 
 
 
 
-const App = (props) => {
-  
-  
-  return (
-   <BrowserRouter>
-    <div className='app-wrapper' >
-      <Header />
-      <Navbar />
-      
-     <div className = 'app-wrapper-content'>
-      <Route exact path='/Dialogs'render={ () => <Dialogs Dialogs_data={props.appstate.Messages_Page.Dialogs_data} Message_data={props.appstate.Messages_Page.Message_data} />} />
-      <Route exact path='/Profile'render={() =><Profile Post_item_data={props.appstate.Profile_Page.Post_item_data} AddPost={props.AddPost} />} />
-      <Route exact path='/Music' render={ () => <Music />} />
-      <Route exact path='/Settings' render={() =><Settings />} />
-      <Route exact path='/item' render={()=><Panorama />} />
-      <Route exact path='/Post_item/' render={()=><Panorama />} />
-      <Route exact path='/Frends' render={()=><Frends />} />
-     </div>
-    </div>
-    </BrowserRouter>
-    ); 
-  
+
+class App extends Component {
+
+  componentDidMount() {
+    this.props.initializeApp();
+  }
+
+  render() {
+    if (!this.props.initialized) {
+      return <Preloader />
+    }
+    return (
+
+      <div className='app-wrapper' >
+        <HeaderContainer className='header' />
+        <Navbar className='navbar' />
+
+
+        <div className='app-wrapper-content'>
+          <Route exact path='/Dialogs' render={withSuspense(Dialogs)} />
+
+
+
+          <Route exact path='/profile/:userId?' render={() => <ProfileContainer />} />
+          <Route exact path='/' render={() => <ProfileContainer />} />
+
+
+
+
+          <Route exact path='/Users' render={withSuspense(UsersContainer)} />
+
+          <Route exact path='/Music' render={() => <Music />} />
+          <Route exact path='/Settings' render={() => <Settings />} />
+          <Route exact path='/item' render={() => <Panorama />} />
+          <Route exact path='/Post_item/' render={() => <Panorama />} />
+          <Route exact path='/description/' render={() => <Profile1 />} />
+          <Route exact path='/Login' render={() => <Login />} />
+          <Route exact path='/Galery' render={() => <PhotoGalery />} />
+          <Route exact path='/Frends' render={() => <FrendsContainer />} />
+          <Route exact path='/Search' render={() => <SearchContainer />} />
+
+
+        </div>
+      </div>
+
+
+    );
+  }
 }
-    
-    
-  
 
 
-export default App;
+
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+})
+
+export default compose(
+  withRouter,
+  connect(mapStateToProps, { initializeApp }))(App);
