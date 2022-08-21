@@ -1,4 +1,4 @@
-# Social-project-Vezde-for-IT-INCUBATOR
+# Social-project-Vezde
 
 social network created by training videos IT-INCUBATOR 
 
